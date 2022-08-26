@@ -1,0 +1,62 @@
+<p>Criar a boneca</p>
+<mat-stepper orientation="vertical" linear="true" #stepper>
+  <mat-step [stepControl]="peleForm" [editable]="true">
+    <form [formGroup]="peleForm">
+      <ng-template matStepLabel>Escolha o tom de Pele</ng-template>
+      <mat-radio-group matInput formControlName="skin" class="selector">
+        <div *ngFor="let option of peleOptions">
+            <mat-radio-button class="img" value={{option}}>
+
+            </mat-radio-button>
+        </div>
+      </mat-radio-group>
+      <div>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="cabeloForm" [editable]="true">
+    <form [formGroup]="cabeloForm">
+      <ng-template matStepLabel>Escolha o cabelo</ng-template>
+      <mat-radio-group matInput formControlName="hair" >
+        <div *ngFor="let option of cabeloOptions">
+            <mat-radio-button value={{option}}>{{option}}</mat-radio-button>
+        </div>
+      </mat-radio-group>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="vestidoForm" [editable]="true">
+    <form [formGroup]="vestidoForm">
+      <ng-template matStepLabel>Escolha o vestido</ng-template>
+      <mat-radio-group matInput formControlName="dress" >
+        <div *ngFor="let option of vestidoOptions">
+            <mat-radio-button value={{option}}>
+                <img width="100" src={{imageTwo}}>
+            </mat-radio-button>
+        </div>
+      </mat-radio-group>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="sapatoForm" [editable]="true">
+    <form [formGroup]="sapatoForm">
+      <ng-template matStepLabel>Escolha o sapato</ng-template>
+      <mat-radio-group matInput formControlName="shoe" >
+        <div *ngFor="let option of sapatoOptions">
+            <mat-radio-button value={{option}}>{{option}}</mat-radio-button>
+        </div>
+      </mat-radio-group>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+</mat-stepper>

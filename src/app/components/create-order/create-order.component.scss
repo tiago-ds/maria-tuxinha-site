@@ -1,0 +1,73 @@
+:host ::ng-deep .mat-radio-container {
+  display: none;
+}
+
+:host ::ng-deep .mat-radio-container :active {
+  display: show;
+}
+
+.img input {
+  margin:0;padding:0;
+    -webkit-appearance:none;
+       -moz-appearance:none;
+            appearance:none;
+}
+
+.img {
+  border-radius: 50%;
+  background-image:url(https://lastfm.freetls.fastly.net/i/u/770x0/9d405d7b09697e4c352ecc950238aa6a.jpg);
+  width: 100px;
+  height: 100px;
+  cursor:pointer;
+    background-size:contain;
+    background-repeat:no-repeat;
+    display:inline-block;
+    -webkit-transition: all 100ms ease-in;
+       -moz-transition: all 100ms ease-in;
+            transition: all 100ms ease-in;
+    -webkit-filter: brightness(1.8) grayscale(1) opacity(.7);
+       -moz-filter: brightness(1.8) grayscale(1) opacity(.7);
+            filter: brightness(1.8) grayscale(1) opacity(.7);
+}
+
+.img:selected {
+  -webkit-filter: none;
+       -moz-filter: none;
+            filter: none;
+}
+
+.img:hover{
+  -webkit-filter: brightness(1.2) grayscale(.5) opacity(.9);
+     -moz-filter: brightness(1.2) grayscale(.5) opacity(.9);
+          filter: brightness(1.2) grayscale(.5) opacity(.9);
+}
+
+.selector:active {
+  opacity: .9;
+}
+
+.selector:checked {
+  -webkit-filter: none;
+       -moz-filter: none;
+            filter: none;
+}
+
+img {
+  border-radius: 50%;
+
+  cursor:pointer;
+    background-size:contain;
+    background-repeat:no-repeat;
+    display:inline-block;
+    -webkit-transition: all 100ms ease-in;
+       -moz-transition: all 100ms ease-in;
+            transition: all 100ms ease-in;
+    -webkit-filter: brightness(1.8) grayscale(1) opacity(.7);
+       -moz-filter: brightness(1.8) grayscale(1) opacity(.7);
+            filter: brightness(1.8) grayscale(1) opacity(.7);
+}
+
+
+mat-radio-button:checked {
+  display: none;
+}
