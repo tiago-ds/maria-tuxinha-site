@@ -5,8 +5,9 @@
       <ng-template matStepLabel>Escolha o tom de Pele</ng-template>
       <mat-radio-group matInput formControlName="skin" class="selector">
         <div *ngFor="let option of peleOptions">
-            <mat-radio-button class="img" value={{option}}>
-
+            <mat-radio-button value={{option.uuid}}>
+              <img src={{option.pictureUrl}}>
+              <label for="img">{{option.name}}</label>
             </mat-radio-button>
         </div>
       </mat-radio-group>
@@ -20,9 +21,17 @@
       <ng-template matStepLabel>Escolha o cabelo</ng-template>
       <mat-radio-group matInput formControlName="hair" >
         <div *ngFor="let option of cabeloOptions">
-            <mat-radio-button value={{option}}>{{option}}</mat-radio-button>
+            <mat-radio-button value={{option.uuid}}>
+              <img src={{option.pictureUrl}}>
+              <label for="img">{{option.name}}</label>
+            </mat-radio-button>
         </div>
       </mat-radio-group>
+      <mat-form-field appearance="fill">
+        <mat-label>Como será o cabelo?</mat-label>
+        <input formControlName="name" matInput placeholder="Crespo e Liso">
+        <mat-hint>Dê uma breve descriçãod do cabelo</mat-hint>
+      </mat-form-field>
       <div>
         <button mat-button matStepperPrevious>Back</button>
         <button mat-button matStepperNext>Next</button>
@@ -34,8 +43,9 @@
       <ng-template matStepLabel>Escolha o vestido</ng-template>
       <mat-radio-group matInput formControlName="dress" >
         <div *ngFor="let option of vestidoOptions">
-            <mat-radio-button value={{option}}>
-                <img width="100" src={{imageTwo}}>
+            <mat-radio-button value={{option.uuid}}>
+              <img src={{option.pictureUrl}}>
+              <label for="img">{{option.name}}</label>
             </mat-radio-button>
         </div>
       </mat-radio-group>
@@ -50,12 +60,15 @@
       <ng-template matStepLabel>Escolha o sapato</ng-template>
       <mat-radio-group matInput formControlName="shoe" >
         <div *ngFor="let option of sapatoOptions">
-            <mat-radio-button value={{option}}>{{option}}</mat-radio-button>
+            <mat-radio-button value={{option.uuid}}>
+              <img src={{option.pictureUrl}}>
+              <label for="img">{{option.name}}</label>
+            </mat-radio-button>
         </div>
       </mat-radio-group>
       <div>
         <button mat-button matStepperPrevious>Back</button>
-        <button mat-button matStepperNext>Next</button>
+        <button mat-button matStepperNext (click)="openDialog()">Finish</button>
       </div>
     </form>
   </mat-step>

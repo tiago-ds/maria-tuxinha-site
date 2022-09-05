@@ -1,59 +1,22 @@
-:host ::ng-deep .mat-radio-container {
-  display: none;
+.mat-stepper-vertical {
+  margin-top: 8px;
 }
 
-:host ::ng-deep .mat-radio-container :active {
-  display: show;
-}
-
-.img input {
-  margin:0;padding:0;
-    -webkit-appearance:none;
-       -moz-appearance:none;
-            appearance:none;
-}
-
-.img {
-  border-radius: 50%;
-  background-image:url(https://lastfm.freetls.fastly.net/i/u/770x0/9d405d7b09697e4c352ecc950238aa6a.jpg);
-  width: 100px;
-  height: 100px;
-  cursor:pointer;
-    background-size:contain;
-    background-repeat:no-repeat;
-    display:inline-block;
-    -webkit-transition: all 100ms ease-in;
-       -moz-transition: all 100ms ease-in;
-            transition: all 100ms ease-in;
-    -webkit-filter: brightness(1.8) grayscale(1) opacity(.7);
-       -moz-filter: brightness(1.8) grayscale(1) opacity(.7);
-            filter: brightness(1.8) grayscale(1) opacity(.7);
-}
-
-.img:selected {
-  -webkit-filter: none;
-       -moz-filter: none;
-            filter: none;
-}
-
-.img:hover{
-  -webkit-filter: brightness(1.2) grayscale(.5) opacity(.9);
-     -moz-filter: brightness(1.2) grayscale(.5) opacity(.9);
-          filter: brightness(1.2) grayscale(.5) opacity(.9);
-}
-
-.selector:active {
-  opacity: .9;
-}
-
-.selector:checked {
-  -webkit-filter: none;
-       -moz-filter: none;
-            filter: none;
+.mat-form-field {
+  margin-top: 16px;
 }
 
 img {
   border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  cursor:pointer;
+}
+
+.img {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
 
   cursor:pointer;
     background-size:contain;
@@ -67,7 +30,26 @@ img {
             filter: brightness(1.8) grayscale(1) opacity(.7);
 }
 
+img:hover {
+  -webkit-filter: brightness(0.8) grayscale(.1) opacity(1);
+       -moz-filter: brightness(0.8) grayscale(.1) opacity(1);
+            filter: brightness(0.8) grayscale(.1) opacity(1);
+}
 
-mat-radio-button:checked {
+mat-radio-group {
+  display: inline-flex;
+}
+
+mat-radio-button {
+  display: table-row;
+}
+:host ::ng-deep .mat-radio-container {
   display: none;
 }
+
+::ng-deep.mat-radio-button.mat-accent.mat-radio-checked img {
+  -webkit-filter: none;
+       -moz-filter: none;
+            filter: none;
+}
+

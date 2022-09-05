@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
+import { Adereco } from 'src/app/models/Pedido';
+import { AderecoService } from 'src/app/services/adereco.service';
+import { OrderService } from '../../services/order.service';
+import { CheckoutComponent } from '../checkout/checkout.component';
 
 @Component({
   selector: 'app-create-order',
@@ -13,32 +18,66 @@ export class CreateOrderComponent implements OnInit {
   vestidoForm: FormGroup;
   sapatoForm: FormGroup;
 
-  cabeloOptions = ['1', '2', '3'];
-  peleOptions = ['1', '2', '3'];
-  vestidoOptions = ['vermelho', 'verde', 'listrado', 'rosa'];
-  sapatoOptions = ['preto', 'azul'];
-  imageTwo = 'https://lastfm.freetls.fastly.net/i/u/770x0/9d405d7b09697e4c352ecc950238aa6a.jpg';
+  aderecos: Adereco[] = [];
+  cabeloOptions: Adereco[] = [];
+  peleOptions: Adereco[] = [];
+  vestidoOptions: Adereco[] = [];
+  sapatoOptions: Adereco[] = [];
 
-  constructor(private _formBuilder: FormBuilder) {
+  REGEX: RegExp = new RegExp("^https:\/\/drive\.google\.com\/file\/d\/([^\/]+)\/.*$");
+
+  constructor(private _formBuilder: FormBuilder, private aderecoService: AderecoService,
+              private orderService: OrderService, public dialog: MatDialog) {
     this.peleForm = this._formBuilder.group({
-      ['skin']: ['', Validators.required],
+      ["skin"]: ['', Validators.required],
     });
     this.cabeloForm = this._formBuilder.group({
-      ['hair']: ['', Validators.required],
+      ["hair"]: ['', Validators.required],
     });
     this.vestidoForm = this._formBuilder.group({
-      ['dress']: ['', Validators.required],
+      ["dress"]: ['', Validators.required],
     });
     this.sapatoForm = this._formBuilder.group({
-      ['shoe']: ['', Validators.required],
+      ["shoe"]: ['', Validators.required],
     });
   }
 
-  ngOnInit(): void {}
+  openDialog(): void {
+    const dialogRef = this.dialog.open(CheckoutComponent, {
+      width: '300px',
+      data: this.getAderecos(),
+    });
 
-  print() {
-    console.log(this.cabeloForm.value);
+    dialogRef.afterClosed().subscribe(result => {
+
+    });
   }
 
+  async ngOnInit(): Promise<void> {
+    this.aderecos = await this.aderecoService.getAderecos();
+    this.distributeAderecos();
+  }
 
+  distributeAderecos() {
+    this.peleOptions = this.aderecos.filter((it) => it.type === "pele");
+    this.vestidoOptions = this.aderecos.filter((it) => it.type === "vestido");
+    this.cabeloOptions = this.aderecos.filter((it) => it.type === "cabelo");
+    this.sapatoOptions = this.aderecos.filter((it) => it.type === "sapato");
+  }
+
+  validateCreateOrder(): boolean {
+    return this.peleForm.valid &&
+            this.cabeloForm.valid &&
+              this.vestidoForm.valid &&
+                this.sapatoForm.valid;
+  }
+
+  getAderecos(): Adereco[] {
+    const aderecos: any = [];
+    aderecos.push(this.peleOptions.find((it) => it.uuid === this.peleForm.value.skin));
+    aderecos.push(this.vestidoOptions.find((it) => it.uuid === this.vestidoForm.value.dress));
+    aderecos.push(this.cabeloOptions.find((it) => it.uuid === this.cabeloForm.value.hair));
+    aderecos.push(this.sapatoOptions.find((it) => it.uuid === this.sapatoForm.value.shoe));
+    return aderecos;
+  }
 }

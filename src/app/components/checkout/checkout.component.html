@@ -1,0 +1,30 @@
+<h1 mat-dialog-title>Seus dados</h1>
+<div mat-dialog-content>
+  <form [formGroup]="clienteForm" class="center">
+    <p>
+      <mat-form-field appearance="fill">
+        <mat-label>Nome</mat-label>
+        <input formControlName="name" matInput placeholder="Maria Eunice">
+        <mat-hint>Digite seu nome</mat-hint>
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field appearance="fill">
+        <mat-label>Email</mat-label>
+        <input formControlName="email" matInput placeholder="exemplo@gmail.com">
+        <mat-hint>Digite seu email</mat-hint>
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field appearance="fill">
+        <mat-label>Número</mat-label>
+        <input type="tel" formControlName="phoneNumber" matInput placeholder="(81) 99111-1121" mask="(00) 00000-0000">
+        <mat-hint>Digite seu número do Whatsapp para contato</mat-hint>
+      </mat-form-field>
+    </p>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button color="primary" (click)="finish()">Finalizar</button>
+  <button mat-button (click)="close()">Cancelar</button>
+</div>
