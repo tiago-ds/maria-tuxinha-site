@@ -5,6 +5,7 @@ import { Adereco } from 'src/app/models/Pedido';
 import { AderecoService } from 'src/app/services/adereco.service';
 import { OrderService } from '../../services/order.service';
 import { CheckoutComponent } from '../checkout/checkout.component';
+import { mockedAderecos } from '../../utils/aderecoUtils';
 
 @Component({
   selector: 'app-create-order',
@@ -17,6 +18,7 @@ export class CreateOrderComponent implements OnInit {
   cabeloForm: FormGroup;
   vestidoForm: FormGroup;
   sapatoForm: FormGroup;
+  cabeloDescricaoForm: FormGroup;
 
   aderecos: Adereco[] = [];
   cabeloOptions: Adereco[] = [];
@@ -40,21 +42,21 @@ export class CreateOrderComponent implements OnInit {
     this.sapatoForm = this._formBuilder.group({
       ["shoe"]: ['', Validators.required],
     });
+    this.cabeloDescricaoForm = this._formBuilder.group({
+      ["hairDescription"]: ['', Validators.required],
+    });
   }
 
   openDialog(): void {
-    const dialogRef = this.dialog.open(CheckoutComponent, {
+    this.dialog.open(CheckoutComponent, {
       width: '300px',
       data: this.getAderecos(),
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-
     });
   }
 
   async ngOnInit(): Promise<void> {
     this.aderecos = await this.aderecoService.getAderecos();
+    //this.aderecos = mockedAderecos;
     this.distributeAderecos();
   }
 

@@ -13,23 +13,6 @@ img {
   cursor:pointer;
 }
 
-.img {
-  border-radius: 50%;
-  width: 100px;
-  height: 100px;
-
-  cursor:pointer;
-    background-size:contain;
-    background-repeat:no-repeat;
-    display:inline-block;
-    -webkit-transition: all 100ms ease-in;
-       -moz-transition: all 100ms ease-in;
-            transition: all 100ms ease-in;
-    -webkit-filter: brightness(1.8) grayscale(1) opacity(.7);
-       -moz-filter: brightness(1.8) grayscale(1) opacity(.7);
-            filter: brightness(1.8) grayscale(1) opacity(.7);
-}
-
 img:hover {
   -webkit-filter: brightness(0.8) grayscale(.1) opacity(1);
        -moz-filter: brightness(0.8) grayscale(.1) opacity(1);
@@ -40,9 +23,6 @@ mat-radio-group {
   display: inline-flex;
 }
 
-mat-radio-button {
-  display: table-row;
-}
 :host ::ng-deep .mat-radio-container {
   display: none;
 }
@@ -51,5 +31,12 @@ mat-radio-button {
   -webkit-filter: none;
        -moz-filter: none;
             filter: none;
+
+  border:0.5px solid green;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
 }
+
+
 
