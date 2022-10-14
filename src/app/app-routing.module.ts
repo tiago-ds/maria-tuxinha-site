@@ -3,15 +3,16 @@ import { RouterModule, Routes } from '@angular/router';
 import { AddAderecoComponent } from './components/add-adereco/add-adereco.component';
 import { CreateOrderComponent } from './components/create-order/create-order.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
+import { HomeComponent } from './pages/home/home.component';
 
 const routes: Routes = [
+  { path: '', component: HomeComponent },
   { path: 'create-order', component: CreateOrderComponent },
   { path: 'add-adereco', component: AddAderecoComponent },
-  { path: 'checkout', component: CheckoutComponent}
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

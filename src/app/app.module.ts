@@ -22,13 +22,21 @@ import { MatBadgeModule } from '@angular/material/badge';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { NgxMaskModule } from 'ngx-mask';
+import { HomeComponent } from './pages/home/home.component';
+import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
+import { GalleryCardComponent } from './components/gallery/gallery-card/gallery-card.component';
+import { GalleryComponent } from './components/gallery/gallery.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CreateOrderComponent,
     AddAderecoComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    HomeComponent,
+    GalleryCardComponent,
+    GalleryComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,10 +53,13 @@ import { NgxMaskModule } from 'ngx-mask';
     MatRadioModule,
     MatBadgeModule,
     MatDialogModule,
+    MatCardModule,
     MatSnackBarModule,
-    NgxMaskModule.forRoot()
+    MatIconModule,
+    NgxMaskModule.forRoot(),
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  exports: [GalleryCardComponent, GalleryComponent],
 })
-export class AppModule { }
+export class AppModule {}
