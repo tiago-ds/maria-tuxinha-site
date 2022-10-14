@@ -1,0 +1,20 @@
+mat-card-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  max-height: 40px;
+}
+
+.gallery-card {
+  max-width: 230px;
+  border-radius: 8px;
+}
+
+img {
+  object-fit: cover;
+  max-height: 120px;
+}
+
+::ng-deep .mat-card-header-text {
+  display: none;
+}
