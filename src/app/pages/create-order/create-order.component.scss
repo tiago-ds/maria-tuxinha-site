@@ -1,0 +1,36 @@
+.mat-stepper-vertical {
+  background-color: transparent;
+  margin-top: 8px;
+}
+
+::ng-deep.mat-vertical-content {
+  padding: 8px 16px !important;
+}
+
+.mat-form-field {
+  margin-top: 16px;
+}
+
+img:hover {
+  -webkit-filter: brightness(0.8) grayscale(.1) opacity(1);
+       -moz-filter: brightness(0.8) grayscale(.1) opacity(1);
+            filter: brightness(0.8) grayscale(.1) opacity(1);
+}
+
+mat-radio-group {
+  display: inline-flex;
+}
+
+:host ::ng-deep .mat-radio-container {
+  display: none;
+}
+
+
+button {
+  margin-top: 16px;
+  margin-right: 16px;
+  margin-left: 8px;
+
+}
+
+

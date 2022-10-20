@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AddAderecoComponent } from './components/add-adereco/add-adereco.component';
-import { CreateOrderComponent } from './components/create-order/create-order.component';
+import { AddAderecoComponent } from './pages/add-adereco/add-adereco.component';
+import { CreateOrderComponent } from './pages/create-order/create-order.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { HomeComponent } from './pages/home/home.component';
 

@@ -1,0 +1,29 @@
+:host {
+  margin-right: 16px;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+::ng-deep.mat-radio-label-content {
+
+
+  .mat-icon{
+    position: absolute;
+    top: 15px;
+    left: 70px;
+  }
+}
+
+::ng-deep.mat-radio-label-content {
+  position: relative;
+}
+
+
+img {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  cursor:pointer;
+}
