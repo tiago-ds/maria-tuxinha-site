@@ -1,0 +1,66 @@
+@import "~@angular/material/theming";
+@include mat-core();
+
+$txa-palette: (
+  50: #f8eaed,
+  100: #f0cbd0,
+  200: #ca7173,
+  300: #ca7173,
+  400: #d45153,
+  500: #d93e3a,
+  600: #ca3638,
+  700: #b92d32,
+  800: #ac262b,
+  900: #9e1b20,
+  contrast: (
+    50: $black-87-opacity,
+    100: $black-87-opacity,
+    200: $black-87-opacity,
+    300: $black-87-opacity,
+    400: white,
+    500: white,
+    600: white,
+    700: white,
+    800: white,
+    900: white,
+    A100: $black-87-opacity,
+    A200: $black-87-opacity,
+    A400: $black-87-opacity,
+    A700: white,
+  ),
+);
+
+$txa-palette-accent: (
+  50: #ffecd3,
+  100: #efd2b7,
+  200: #d8b698,
+  300: #be9a77,
+  400: #aa835c,
+  500: #966d42,
+  600: #8a623b,
+  700: #7a5431,
+  800: #6d4729,
+  900: #5d381f,
+  contrast: (
+    50: $black-87-opacity,
+    100: $black-87-opacity,
+    200: $black-87-opacity,
+    300: $black-87-opacity,
+    400: white,
+    500: white,
+    600: white,
+    700: white,
+    800: white,
+    900: white,
+    A100: $black-87-opacity,
+    A200: $black-87-opacity,
+    A400: $black-87-opacity,
+    A700: white,
+  ),
+);
+
+$txa-primary: mat-palette($txa-palette, 400, 50, 900);
+$txa-accent: mat-palette($txa-palette-accent, 200, 50, 900);
+$txa-warn: mat-palette($mat-deep-orange, A200);
+
+$txa-theme: mat-light-theme($txa-primary, $txa-accent, $txa-warn);

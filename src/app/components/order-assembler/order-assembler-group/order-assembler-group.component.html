@@ -1,0 +1,8 @@
+<mat-radio-group (change)="onOptionChange($event)" class="mat-radio-group">
+  <div *ngFor="let option of optionList">
+    <txa-order-assembler-item
+      [isSelected]="currentSelection === option.uuid"
+      [option]="option"
+    ></txa-order-assembler-item>
+  </div>
+</mat-radio-group>

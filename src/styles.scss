@@ -1,3 +1,5 @@
+@import "txa-theme.scss";
+
 /* You can add global styles to this file, and also import other style files */
 
 html, body { height: 100vh;}
@@ -7,7 +9,12 @@ overflow: hidden;
 }
 
 
+.txa-theme {
+  @include angular-material-theme($txa-theme);
+}
+
 :root {
+  @include angular-material-theme($txa-theme);
   --color-primary: #f8dedf;
 	--color-primary-rgb: 248,222,223;
 	--color-primary-contrast: #000000;
@@ -69,9 +76,4 @@ overflow: hidden;
   --color-text-tertiary: #DE7850;
   --color-text-quaternary: #5E473E;
   --color-text-quinary: #AB5C3E;
-
-  h1, h2, h3, h4, h5, h6, p, span {
-    color: var(--color-text-quaternary);
-    margin: 0;
-  }
 }
