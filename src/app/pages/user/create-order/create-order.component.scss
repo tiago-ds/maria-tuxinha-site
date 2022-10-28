@@ -12,9 +12,9 @@
 }
 
 img:hover {
-  -webkit-filter: brightness(0.8) grayscale(.1) opacity(1);
-       -moz-filter: brightness(0.8) grayscale(.1) opacity(1);
-            filter: brightness(0.8) grayscale(.1) opacity(1);
+  -webkit-filter: brightness(0.8) grayscale(0.1) opacity(1);
+  -moz-filter: brightness(0.8) grayscale(0.1) opacity(1);
+  filter: brightness(0.8) grayscale(0.1) opacity(1);
 }
 
 mat-radio-group {
@@ -25,12 +25,8 @@ mat-radio-group {
   display: none;
 }
 
-
 button {
   margin-top: 16px;
   margin-right: 16px;
   margin-left: 8px;
-
 }
-
-

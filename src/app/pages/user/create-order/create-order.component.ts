@@ -3,9 +3,9 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { Adereco } from 'src/app/models/Pedido';
 import { AderecoService } from 'src/app/services/adereco.service';
-import { OrderService } from '../../services/order.service';
-import { CheckoutComponent } from '../../components/checkout/checkout.component';
-import { mockedAderecos } from '../../utils/aderecoUtils';
+import { OrderService } from '../../../services/order.service';
+import { CheckoutComponent } from '../../../components/checkout/checkout.component';
+import { mockedAderecos } from '../../../utils/aderecoUtils';
 
 @Component({
   selector: 'txa-create-order',
@@ -64,6 +64,15 @@ export class CreateOrderComponent implements OnInit {
     this.vestidoOptions = this.aderecos.filter((it) => it.type === 'vestido');
     this.cabeloOptions = this.aderecos.filter((it) => it.type === 'cabelo');
     this.sapatoOptions = this.aderecos.filter((it) => it.type === 'sapato');
+  }
+
+  aderecoMissing() {
+    return (
+      this.peleOptions.length &&
+      this.cabeloOptions.length &&
+      this.vestidoOptions.length &&
+      this.sapatoOptions.length
+    );
   }
 
   validateCreateOrder(): boolean {

@@ -1,0 +1,7 @@
+<swiper [config]="config" (slideChange)="onSlideChange()">
+  <ng-template class="slide-img" *ngFor="let item of list" swiperSlide>
+    <div class="img-container">
+      <img [src]="item.imageSrc" />
+    </div>
+  </ng-template>
+</swiper>
