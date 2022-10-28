@@ -9,23 +9,23 @@ import { AdminComponent } from './pages/backoffice/admin/admin.component';
 
 const routes: Routes = [
   {
-    path: 'maria-tuxinha-site',
-    redirectTo: 'maria-tuxinha-site/home',
+    path: '',
+    redirectTo: 'home',
     pathMatch: 'full',
   },
-  { path: 'maria-tuxinha-site/home', component: HomeComponent },
-  { path: 'maria-tuxinha-site/create-order', component: CreateOrderComponent },
+  { path: 'home', component: HomeComponent },
+  { path: 'create-order', component: CreateOrderComponent },
   {
-    path: 'maria-tuxinha-site/admin/add-adereco',
+    path: 'admin/add-adereco',
     component: AddAderecoComponent,
     canActivate: [AuthGuard],
   },
   {
-    path: 'maria-tuxinha-site/admin',
+    path: 'admin',
     component: AdminComponent,
     canActivate: [AuthGuard],
   },
-  { path: 'maria-tuxinha-site/admin/login', component: AdminLoginComponent },
+  { path: 'admin/login', component: AdminLoginComponent },
 ];
 
 @NgModule({
