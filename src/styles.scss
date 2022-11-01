@@ -1,79 +1,98 @@
 @import "txa-theme.scss";
+@import "swiper/scss";
+@import "swiper/scss/pagination";
 
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100vh;}
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
-background-color: var(--color-secondary);
-overflow: hidden;
+html,
+body {
+  font-family: "Josefin Sans", sans-serif;
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
 }
-
-
-.txa-theme {
-  @include angular-material-theme($txa-theme);
+body {
+  margin: 0;
+  display: flex;
+  background-color: var(--color-secondary);
+  // overflow: hidden;
 }
 
 :root {
   @include angular-material-theme($txa-theme);
   --color-primary: #f8dedf;
-	--color-primary-rgb: 248,222,223;
-	--color-primary-contrast: #000000;
-	--color-primary-contrast-rgb: 0,0,0;
-	--color-primary-shade: #dac3c4;
-	--color-primary-tint: #f9e1e2;
+  --color-primary-rgb: 248, 222, 223;
+  --color-primary-contrast: #000000;
+  --color-primary-contrast-rgb: 0, 0, 0;
+  --color-primary-shade: #dac3c4;
+  --color-primary-tint: #f9e1e2;
 
-	--color-secondary: #f2c5c6;
-	--color-secondary-rgb: 242,197,198;
-	--color-secondary-contrast: #000000;
-	--color-secondary-contrast-rgb: 0,0,0;
-	--color-secondary-shade: #d5adae;
-	--color-secondary-tint: #f3cbcc;
+  --color-secondary: #f2c5c6;
+  --color-secondary-rgb: 242, 197, 198;
+  --color-secondary-contrast: #000000;
+  --color-secondary-contrast-rgb: 0, 0, 0;
+  --color-secondary-shade: #d5adae;
+  --color-secondary-tint: #f3cbcc;
 
-	--color-tertiary: #f5adaf;
-	--color-tertiary-rgb: 245,173,175;
-	--color-tertiary-contrast: #000000;
-	--color-tertiary-contrast-rgb: 0,0,0;
-	--color-tertiary-shade: #d8989a;
-	--color-tertiary-tint: #f6b5b7;
+  --color-tertiary: #f5adaf;
+  --color-tertiary-rgb: 245, 173, 175;
+  --color-tertiary-contrast: #000000;
+  --color-tertiary-contrast-rgb: 0, 0, 0;
+  --color-tertiary-shade: #d8989a;
+  --color-tertiary-tint: #f6b5b7;
 
-	--color-success: #5fc8c0;
-	--color-success-rgb: 95,200,192;
-	--color-success-contrast: #000000;
-	--color-success-contrast-rgb: 0,0,0;
-	--color-success-shade: #54b0a9;
-	--color-success-tint: #6fcec6;
+  --color-success: #5fc8c0;
+  --color-success-rgb: 95, 200, 192;
+  --color-success-contrast: #000000;
+  --color-success-contrast-rgb: 0, 0, 0;
+  --color-success-shade: #54b0a9;
+  --color-success-tint: #6fcec6;
 
-	--color-warning: #f2e0a6;
-	--color-warning-rgb: 242,224,166;
-	--color-warning-contrast: #000000;
-	--color-warning-contrast-rgb: 0,0,0;
-	--color-warning-shade: #d5c592;
-	--color-warning-tint: #f3e3af;
+  --color-warning: #f2e0a6;
+  --color-warning-rgb: 242, 224, 166;
+  --color-warning-contrast: #000000;
+  --color-warning-contrast-rgb: 0, 0, 0;
+  --color-warning-shade: #d5c592;
+  --color-warning-tint: #f3e3af;
 
-	--color-danger: #f26e7f;
-	--color-danger-rgb: 242,110,127;
-	--color-danger-contrast: #000000;
-	--color-danger-contrast-rgb: 0,0,0;
-	--color-danger-shade: #d56170;
-	--color-danger-tint: #f37d8c;
+  --color-danger: #f26e7f;
+  --color-danger-rgb: 242, 110, 127;
+  --color-danger-contrast: #000000;
+  --color-danger-contrast-rgb: 0, 0, 0;
+  --color-danger-shade: #d56170;
+  --color-danger-tint: #f37d8c;
 
-	--color-medium: #92949c;
-	--color-medium-rgb: 146,148,156;
-	--color-medium-contrast: #000000;
-	--color-medium-contrast-rgb: 0,0,0;
-	--color-medium-shade: #808289;
-	--color-medium-tint: #9d9fa6;
+  --color-medium: #92949c;
+  --color-medium-rgb: 146, 148, 156;
+  --color-medium-contrast: #000000;
+  --color-medium-contrast-rgb: 0, 0, 0;
+  --color-medium-shade: #808289;
+  --color-medium-tint: #9d9fa6;
 
-	--color-light: #f4f5f8;
-	--color-light-rgb: 244,245,248;
-	--color-light-contrast: #000000;
-	--color-light-contrast-rgb: 0,0,0;
-	--color-light-shade: #d7d8da;
-	--color-light-tint: #f5f6f9;
+  --color-light: #f4f5f8;
+  --color-light-rgb: 244, 245, 248;
+  --color-light-contrast: #000000;
+  --color-light-contrast-rgb: 0, 0, 0;
+  --color-light-shade: #d7d8da;
+  --color-light-tint: #f5f6f9;
 
   --color-text-primary: #844830;
-  --color-text-secondary: #E3AC96;
-  --color-text-tertiary: #DE7850;
-  --color-text-quaternary: #5E473E;
-  --color-text-quinary: #AB5C3E;
+  --color-text-secondary: #e3ac96;
+  --color-text-tertiary: #de7850;
+  --color-text-quaternary: #5e473e;
+  --color-text-quinary: #ab5c3e;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+span,
+p,
+a,
+div {
+  font-family: "Josefin Sans";
 }

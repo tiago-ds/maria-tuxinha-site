@@ -1,0 +1,30 @@
+<header *ngIf="!isAdmin">
+  <div class="site-name">
+    <h1>Maria Tuxinha</h1>
+  </div>
+  <div class="pages">
+    <a
+      [class.active]="isInPage('/home')"
+      routerLink="/home"
+      routerLinkActive="active"
+      >Início</a
+    >
+    <a
+      [class.active]="isInPage('about')"
+      routerLink="/about"
+      routerLinkActive="active"
+      >Sobre</a
+    >
+    <a
+      [class.active]="isInPage('contact')"
+      routerLink="/contact"
+      routerLinkActive="active"
+      >Contato</a
+    >
+  </div>
+  <div class="create">
+    <a class="create-doll" href="/create-order">
+      <mat-icon> border_color</mat-icon>Crie sua boneca</a
+    >
+  </div>
+</header>

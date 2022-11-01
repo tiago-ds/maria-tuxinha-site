@@ -6,15 +6,64 @@ mat-card-header {
 }
 
 .gallery-card {
-  max-width: 230px;
+  max-width: 240px;
   border-radius: 8px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.16), 0 1px 2px rgba(0, 0, 0, 0.23) !important;
+
+  &:hover {
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23) !important;
+  }
+
+  img {
+    object-fit: cover;
+    max-height: 160px;
+    cursor: pointer;
+  }
 }
 
-img {
-  object-fit: cover;
-  max-height: 120px;
+.card-icon {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+img.overlayImg {
+  width: max-content;
+  height: max-content;
 }
 
 ::ng-deep .mat-card-header-text {
   display: none;
+}
+
+.cdk-overlay-transparent-backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+::ng-deep .cdk-overlay-connected-position-bounding-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.expanse {
+  position: absolute;
+  top: 132px;
+  left: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+  text-align: center;
+  color: rgb(243, 212, 212);
+  visibility: hidden;
+  cursor: pointer;
+  opacity: 0;
+
+  :host:hover & {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  animation-timing-function: ease-in-out;
+  animation-duration: 0.5s;
+  transition: opacity 0.5s;
 }

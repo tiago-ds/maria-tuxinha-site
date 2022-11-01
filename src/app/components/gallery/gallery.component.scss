@@ -3,9 +3,9 @@
   padding: 24px;
 }
 
-.gallery-items{
+.gallery-items {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 2fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px, 2fr));
   gap: 24px;
   padding-top: 24px;
 }

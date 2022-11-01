@@ -1,5 +1,12 @@
 <mat-card class="gallery-card">
-  <img mat-card-image src="{{ imageSrc }}" />
+  <img
+    mat-card-image
+    (click)="toggleOverlay()"
+    cdkOverlayOrigin
+    #trigger="cdkOverlayOrigin"
+    src="{{ imageSrc }}"
+  />
+  <h3 class="expanse">Clique para expandir</h3>
   <mat-card-header>
     <div class="card-text">
       <mat-card-title>{{ title }}</mat-card-title>
@@ -10,3 +17,13 @@
     </div>
   </mat-card-header>
 </mat-card>
+
+<ng-template
+  cdkConnectedOverlay
+  [cdkConnectedOverlayOpen]="isOverlayOpened"
+  [cdkConnectedOverlayHasBackdrop]="true"
+  [cdkConnectedOverlayPanelClass]="['overlay-panel']"
+  (backdropClick)="toggleOverlay()"
+>
+  <img class="overlayImg" src="{{ imageSrc }}" />
+</ng-template>

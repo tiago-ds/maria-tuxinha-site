@@ -2,15 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Adereco } from 'src/app/models/Pedido';
 import { AderecoService } from 'src/app/services/adereco.service';
-import { parseDriveLink } from '../../utils/aderecoUtils';
+import { parseDriveLink } from '../../../utils/aderecoUtils';
 
 @Component({
   selector: 'app-add-adereco',
   templateUrl: './add-adereco.component.html',
-  styleUrls: ['./add-adereco.component.scss']
+  styleUrls: ['./add-adereco.component.scss'],
 })
 export class AddAderecoComponent implements OnInit {
-
   // Form controllers
   TYPE: string;
   NAME: string;
@@ -26,16 +25,18 @@ export class AddAderecoComponent implements OnInit {
     this.LINK = 'pictureUrl';
   }
 
-
   ngOnInit(): void {
     this.initForm();
   }
 
-  initForm(){
+  initForm() {
     this.aderecoForm = new FormGroup({
       [this.TYPE]: new FormControl(undefined, Validators.required),
       [this.NAME]: new FormControl(undefined, Validators.required),
-      [this.LINK]: new FormControl(undefined, Validators.pattern("^(https:\/\/drive\.google\.com\/)file\/d\/([^\/]+)\/.*$")),
+      [this.LINK]: new FormControl(
+        undefined,
+        Validators.pattern('^(https://drive.google.com/)file/d/([^/]+)/.*$')
+      ),
     });
   }
 
@@ -46,5 +47,4 @@ export class AddAderecoComponent implements OnInit {
     newAdereco.lastModified = new Date();
     this.aderecoService.createAdereco(newAdereco);
   }
-
 }

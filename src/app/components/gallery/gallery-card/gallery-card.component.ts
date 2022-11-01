@@ -1,3 +1,4 @@
+import { ConnectionPositionPair } from '@angular/cdk/overlay';
 import {
   ChangeDetectionStrategy,
   Component,
@@ -16,7 +17,26 @@ export class GalleryCardComponent implements OnInit {
   @Input() category = '';
   @Input() imageSrc = '';
 
+  isOverlayOpened = false;
+  positionStrategy: any = [
+    {
+      originX: 'start',
+      originY: 'bottom',
+      overlayX: 'start',
+      overlayY: 'top',
+    },
+    {
+      originX: 'start',
+      originY: 'top',
+      overlayX: 'start',
+      overlayY: 'bottom',
+    },
+  ];
   constructor() {}
 
   ngOnInit(): void {}
+
+  toggleOverlay(): void {
+    this.isOverlayOpened = !this.isOverlayOpened;
+  }
 }

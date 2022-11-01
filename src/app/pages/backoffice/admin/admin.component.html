@@ -1,0 +1,71 @@
+<mat-tab-group animationDuration="0ms">
+  <mat-tab label="Tons de pele">
+    <button mat-raised-button color="primary">
+      <mat-icon>add</mat-icon>Adicionar novo
+    </button>
+    <div class="items">
+      <mat-card *ngFor="let item of peles" class="example-card">
+        <mat-card-title-group>
+          <mat-card-title>{{ item.name }}</mat-card-title>
+          <img mat-card-sm-image [src]="item.pictureUrl" />
+        </mat-card-title-group>
+        <mat-card-actions>
+          <button mat-button>Editar</button>
+          <button mat-button>Remover</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </mat-tab>
+  <mat-tab label="Cabelos"
+    ><button mat-raised-button color="primary">
+      <mat-icon>add</mat-icon>Adicionar novo
+    </button>
+    <div class="items">
+      <mat-card *ngFor="let item of cabelos" class="example-card">
+        <mat-card-title-group>
+          <mat-card-title>{{ item.name }}</mat-card-title>
+          <img mat-card-sm-image [src]="item.pictureUrl" />
+        </mat-card-title-group>
+        <mat-card-actions>
+          <button mat-button>Editar</button>
+          <button mat-button>Remover</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </mat-tab>
+  <mat-tab label="Vestidos">
+    <button mat-raised-button color="primary">
+      <mat-icon>add</mat-icon>Adicionar novo
+    </button>
+    <div class="items">
+      <mat-card *ngFor="let item of vestidos" class="example-card">
+        <mat-card-title-group>
+          <mat-card-title>{{ item.name }}</mat-card-title>
+          <img mat-card-sm-image [src]="item.pictureUrl" />
+        </mat-card-title-group>
+        <mat-card-actions>
+          <button mat-button>Editar</button>
+          <button mat-button>Remover</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </mat-tab>
+  <mat-tab label="Sapatos">
+    <button mat-raised-button color="primary">
+      <mat-icon>add</mat-icon>Adicionar novo
+    </button>
+    <div class="items">
+      <mat-card *ngFor="let item of sapatos" class="example-card">
+        <mat-card-title-group>
+          <mat-card-title>{{ item.name }}</mat-card-title>
+          <img mat-card-sm-image [src]="item.pictureUrl" />
+        </mat-card-title-group>
+        <mat-card-actions>
+          <button mat-button>Editar</button>
+          <button mat-button>Remover</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </mat-tab>
+  <mat-tab label="Galeria">Content 1</mat-tab>
+</mat-tab-group>

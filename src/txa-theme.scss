@@ -1,3 +1,5 @@
+@use "@angular/material" as mat;
+
 @import "~@angular/material/theming";
 @include mat-core();
 
@@ -63,4 +65,23 @@ $txa-primary: mat-palette($txa-palette, 400, 50, 900);
 $txa-accent: mat-palette($txa-palette-accent, 200, 50, 900);
 $txa-warn: mat-palette($mat-deep-orange, A200);
 
-$txa-theme: mat-light-theme($txa-primary, $txa-accent, $txa-warn);
+$my-custom-level: mat.define-typography-level(
+  $font-family: "Josefin Sans",
+  $font-size: 1.2rem,
+);
+
+$kids-typography: mat.define-typography-config(
+  $font-family: "Josefin Sans",
+  $subheading-2: $my-custom-level,
+);
+
+$txa-theme: mat-light-theme(
+  (
+    color: (
+      primary: $txa-primary,
+      accent: $txa-accent,
+      warn: $txa-warn,
+    ),
+    typography: $kids-typography,
+  )
+);
