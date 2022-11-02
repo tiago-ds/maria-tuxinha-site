@@ -1,7 +1,11 @@
 <swiper [config]="config" (slideChange)="onSlideChange()">
-  <ng-template class="slide-img" *ngFor="let item of list" swiperSlide>
-    <div class="img-container">
-      <img [src]="item.imageSrc" />
+  <ng-template *ngFor="let item of list" swiperSlide>
+    <div class="container">
+      <img data-swiper-parallax="-200" [src]="item.imageSrc" />
+      <div>
+        <h1>{{ item.title }}</h1>
+        <p>{{ item.description }}</p>
+      </div>
     </div>
   </ng-template>
 </swiper>

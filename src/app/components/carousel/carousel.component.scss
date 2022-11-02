@@ -1,13 +1,111 @@
-.img-container {
-  position: relative;
+.container {
   overflow: hidden;
-  max-width: 100%;
   max-height: 800px;
   display: flex;
-  justify-content: center;
+  justify-content: left;
+  flex-direction: row;
+  background: url("./../../../assets/carousel-bg.svg") no-repeat center center;
+}
 
+img {
+  width: 550px;
+  height: 550px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+  margin-top: 120px;
+  margin-left: 260px;
+  margin-right: 200px;
+  margin-bottom: 120px;
+}
+h1 {
+  width: 600px;
+  font-family: "Josefin Sans";
+  font-size: 72px;
+  line-height: 72px;
+  margin-top: 200px;
+}
+
+p {
+  width: 600px;
+  font-size: 26px;
+  line-height: 26px;
+  color: var(--color-secondary-shade);
+}
+
+@media screen and (max-width: 1630px) {
+  .container {
+    max-height: 700px;
+  }
   img {
-    object-fit: cover;
-    object-position: center;
+    width: 450px;
+    height: 450px;
+    margin-top: 80px;
+    margin-left: 120px;
+    margin-right: 100px;
+    margin-bottom: 80px;
+  }
+  h1 {
+    width: 400px;
+    font-size: 48px;
+    line-height: 48px;
+    margin-top: 150px;
+  }
+  p {
+    width: 400px;
+    font-size: 18px;
+    line-height: 18px;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .container {
+    max-height: 600px;
+  }
+  img {
+    width: 350px;
+    height: 350px;
+    margin-top: 40px;
+    margin-left: 60px;
+    margin-right: 50px;
+    margin-bottom: 40px;
+  }
+  h1 {
+    width: 300px;
+    font-size: 36px;
+    line-height: 36px;
+    margin-top: 100px;
+  }
+  p {
+    width: 300px;
+    font-size: 14px;
+    line-height: 14px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    background: transparent;
+    width: 100%;
+    max-height: 500px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 50px;
+  }
+  img {
+    width: 250px;
+    height: 250px;
+    margin-top: 20px;
+    margin-left: 30px;
+    margin-right: 25px;
+    margin-bottom: 20px;
+  }
+  h1 {
+    width: 300px;
+    margin-top: 10px;
+  }
+  p {
+    width: 300px;
   }
 }
