@@ -1,4 +1,11 @@
+:host {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
 header {
+  width: 100%;
   display: flex;
   margin: 2em;
   align-items: center;
@@ -16,6 +23,7 @@ header {
       font-weight: bold;
       margin: 0;
       line-height: 1.5em;
+      white-space: pre;
     }
   }
 
