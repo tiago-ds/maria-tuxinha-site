@@ -13,8 +13,6 @@ import {
 } from '@abacritt/angularx-social-login';
 import { GoogleLoginProvider } from '@abacritt/angularx-social-login';
 
-import { SwiperModule } from 'swiper/angular';
-
 import { HttpClientModule } from '@angular/common/http';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -30,6 +28,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { CarouselModule } from './components/carousel/carousel.module';
 import { MatTabsModule } from '@angular/material/tabs';
 import { NgxMaskModule } from 'ngx-mask';
 import { HomeComponent } from './pages/user/home/home.component';
@@ -42,7 +41,9 @@ import { OrderAssemblerGroupComponent } from './components/order-assembler/order
 import { AdminLoginComponent } from './pages/backoffice/admin-login/admin-login.component';
 import { AdminComponent } from './pages/backoffice/admin/admin.component';
 import { HeaderComponent } from './components/header/header.component';
-import { CarouselComponent } from './components/carousel/carousel.component';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,6 @@ import { CarouselComponent } from './components/carousel/carousel.component';
     AdminLoginComponent,
     AdminComponent,
     HeaderComponent,
-    CarouselComponent,
   ],
   imports: [
     BrowserModule,
@@ -78,12 +78,19 @@ import { CarouselComponent } from './components/carousel/carousel.component';
     MatDialogModule,
     MatCardModule,
     MatSnackBarModule,
+    MatSidenavModule,
     MatTabsModule,
     MatIconModule,
     NgxMaskModule.forRoot(),
     OverlayModule,
     SocialLoginModule,
-    SwiperModule,
+    CarouselModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+      // Register the ServiceWorker as soon as the application is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    }),
   ],
   providers: [
     {
@@ -111,7 +118,6 @@ import { CarouselComponent } from './components/carousel/carousel.component';
     OrderAssemblerItemComponent,
     OrderAssemblerGroupComponent,
     HeaderComponent,
-    CarouselComponent,
   ],
 })
 export class AppModule {}
