@@ -27,6 +27,7 @@ export class CarouselComponent implements OnInit {
   config: SwiperOptions = {
     slidesPerView: 1,
     pagination: { clickable: true },
+    centeredSlides: true,
     loop: true,
     autoplay: {
       delay: 4000,
