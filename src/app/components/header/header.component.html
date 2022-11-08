@@ -2,6 +2,30 @@
   <div class="site-name">
     <h1>Maria Tuxinha</h1>
   </div>
+  <ng-container [ngTemplateOutlet]="pages"></ng-container>
+</header>
+
+<div class="mobile-menu">
+  <mat-icon
+    class="open-menu"
+    *ngIf="!menuOpened"
+    (click)="menuOpened = !menuOpened"
+    >menu</mat-icon
+  >
+  <mat-icon
+    class="close-menu"
+    *ngIf="menuOpened"
+    (click)="menuOpened = !menuOpened"
+    >clear</mat-icon
+  >
+</div>
+
+<div class="sidebar-mobile {{ menuOpened ? 'open' : 'closed' }}">
+  <ng-container [ngTemplateOutlet]="pages"></ng-container>
+  <div class="backdrop"></div>
+</div>
+
+<ng-template #pages>
   <div class="pages">
     <a
       [class.active]="isInPage('/home')"
@@ -22,9 +46,7 @@
       >Contato</a
     >
   </div>
-  <div class="create">
-    <a class="create-doll" href="/create-order">
-      <mat-icon> border_color</mat-icon>Crie sua boneca</a
-    >
-  </div>
-</header>
+  <button mat-button class="create-doll" href="/create-order">
+    <mat-icon>border_color</mat-icon>Crie sua boneca
+  </button>
+</ng-template>

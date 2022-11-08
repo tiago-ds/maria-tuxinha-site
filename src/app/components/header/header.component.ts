@@ -9,6 +9,8 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 export class HeaderComponent implements OnInit {
   constructor() {}
 
+  menuOpened = false;
+
   ngOnInit(): void {}
 
   get isAdmin() {
