@@ -23,6 +23,9 @@
 
 @media screen and (max-width: 768px) {
   .gallery {
-    padding: 24px 2em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 24px 1em;
   }
 }
