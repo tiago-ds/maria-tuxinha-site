@@ -7,6 +7,12 @@ export function parseDriveLink(link: string): string {
   return `${baseDriveUrl}${link.match(REGEX)?.[1]}`;
 }
 
+export function getSimpleBonecaValue(): number { return 150; }
+
+export function getExtraAderecoValue(): number { return 30; }
+export function getVestidoValue(): number { return 50; }
+export function getSapatoValue(): number { return 20; }
+
 export const mockedAderecos: Adereco[] = [
   {
       "type": "cabelo",
