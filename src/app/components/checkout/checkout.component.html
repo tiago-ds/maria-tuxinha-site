@@ -23,7 +23,17 @@
       </mat-form-field>
     </p>
   </form>
+  <p>
+    <mat-form-field appearance="fill">
+      <mat-label>Comentários ou pedidos adicionais</mat-label>
+      <input [(ngModel)]="extras" matInput>
+      <mat-hint>Você gostaria de fazer algum comentário extra sobre a sua Maria?</mat-hint>
+    </mat-form-field>
+  </p>
 </div>
+<p>
+  O valor total é de R${{ totalValue }}.
+</p>
 <div mat-dialog-actions>
   <button mat-raised-button color="primary" (click)="finish()">Finalizar</button>
   <button mat-button (click)="close()">Cancelar</button>

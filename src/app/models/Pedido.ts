@@ -16,8 +16,8 @@ export type Cliente = {
 export type Pedido = {
   aderecos: Adereco[],
   cliente: Cliente,
-  //dueDate: Date,
-  //observacoes: string
+  dueDate: Date,
+  comentarios: string
 }
 
 export type BackendResponse<DataType> = {
