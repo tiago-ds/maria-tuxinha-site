@@ -13,9 +13,6 @@ header {
   padding: 0 14em;
 
   .site-name {
-    display: flex;
-    justify-content: center;
-
     h1 {
       color: var(--color-text-primary);
       font-family: "Sacramento";
@@ -31,74 +28,73 @@ header {
     display: flex;
     justify-content: space-evenly;
     min-width: 20em;
-
-    a {
-      font-size: 1.5em;
-      text-decoration: none;
-      color: var(--color-text-quaternary);
-      font-weight: 300;
-
-      &.active {
-        box-shadow: 0px 10px 0px -9px #000000;
-      }
-    }
-  }
-
-  ::ng-deep button.create-doll {
-    text-decoration: none;
-    font-size: 1.2em;
-    font-family: "Josefin Sans", sans-serif;
-    font-weight: 300;
-    background-color: var(--color-text-primary);
-    color: var(--color-primary);
-    padding: 0.6em 1em;
-    border-radius: 8px;
-    text-align: center;
-
-    mat-icon {
-      font-size: 1.2em;
-      margin-right: 4px;
-    }
   }
 }
 
-.sidebar-mobile {
+a.create-doll {
+  text-decoration: none;
+  font-size: 1.2em;
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: 300;
+  background-color: var(--color-text-primary);
+  color: var(--color-primary);
+  padding: 0.6em 1em;
+  border-radius: 8px;
+  white-space: pre;
+
+  mat-icon {
+    font-size: 1.2em;
+    margin-right: 4px;
+  }
+}
+
+a {
+  font-size: 1.5em;
+  text-decoration: none;
+  color: var(--color-text-quaternary);
+  font-weight: 300;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &.active {
+    box-shadow: 0px 10px 0px -9px #000000;
+  }
+}
+
+.sidebar-mobile,
+.mobile-menu mat-icon {
   display: none;
 }
 
 @media screen and (max-width: 768px) {
   header {
-    display: flex;
     margin: 0em;
-    align-items: center;
     justify-content: center;
     padding: 1em 2em;
 
-    .pages {
-      display: none;
-    }
-
-    .create {
-      display: none;
-    }
-
+    .pages,
+    .create,
     .create-doll {
       display: none;
     }
   }
 
   .mobile-menu mat-icon {
+    color: var(--color-text-primary);
     display: block;
     position: absolute;
     z-index: 1010;
     top: 1em;
+    font-size: 2em;
+    transition: left 0.5s ease;
 
     &.close-menu {
-      left: 4.5em;
+      left: 3.5em;
     }
 
     &.open-menu {
-      left: 2.5em;
+      left: 1.5em;
     }
   }
 
@@ -120,14 +116,11 @@ header {
       justify-content: flex-start;
       flex-direction: column;
       align-items: center;
+      margin-top: 5em;
     }
 
     a {
-      margin-bottom: 16px;
-      font-size: 1.5em;
-      text-decoration: none;
-      color: var(--color-text-quaternary);
-      font-weight: 300;
+      margin-bottom: 1em;
     }
 
     &.open {
