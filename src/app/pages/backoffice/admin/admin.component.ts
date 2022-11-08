@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { AddAderecoComponent } from 'src/app/components/add-adereco/add-adereco.component';
 import { AderecoService } from 'src/app/services/adereco.service';
 
 @Component({
@@ -12,7 +14,10 @@ export class AdminComponent implements OnInit {
   cabelos: any;
   sapatos: any;
 
-  constructor(private aderecoService: AderecoService) {}
+  constructor(
+    private aderecoService: AderecoService,
+    public dialog: MatDialog
+  ) {}
 
   ngOnInit(): void {
     this.getAderecosFromApi();
@@ -28,5 +33,12 @@ export class AdminComponent implements OnInit {
     this.vestidos = this.aderecos.filter((it: any) => it.type === 'vestido');
     this.cabelos = this.aderecos.filter((it: any) => it.type === 'cabelo');
     this.sapatos = this.aderecos.filter((it: any) => it.type === 'sapato');
+  }
+
+  openDialog(type: string) {
+    this.dialog.open(AddAderecoComponent, {
+      width: '300px',
+      data: type,
+    });
   }
 }

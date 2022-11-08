@@ -1,26 +1,24 @@
-<p>Criar um adereço no banco</p>
+<h3>Criar um adereço no banco</h3>
 <form [formGroup]="aderecoForm" class="center">
   <mat-form-field appearance="fill">
     <mat-label>Tipo do Adereço</mat-label>
-    <mat-select formControlName="type">
-      <mat-option value="" [disabled]="true"></mat-option>
-      <mat-option *ngFor="let type of types" [value]="type">
-        {{type}}
-      </mat-option>
-    </mat-select>
+    <input matInput formControlName="type" readonly />
   </mat-form-field>
   <p>
     <mat-form-field appearance="fill">
       <mat-label>Nome do Adereço</mat-label>
-      <input formControlName="name" matInput placeholder="Vestido verde">
+      <input formControlName="name" matInput placeholder="Vestido verde" />
       <mat-hint>Um nome para a identificação</mat-hint>
     </mat-form-field>
   </p>
   <p>
     <mat-form-field appearance="fill">
       <mat-label>Link de foto no Drive</mat-label>
-      <input formControlName="pictureUrl" matInput
-        placeholder="https://drive.google.com/file/d/1UOkSpjumC4judHghmECY_dcjrim1_DMh/view?usp=sharing">
+      <input
+        formControlName="pictureUrl"
+        matInput
+        placeholder="https://drive.google.com/file/d/1UOkSpjumC4judHghmECY_dcjrim1_DMh/view?usp=sharing"
+      />
       <mat-hint>Checar se está compartilhando com todos</mat-hint>
     </mat-form-field>
   </p>

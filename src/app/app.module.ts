@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CreateOrderComponent } from './pages/user/create-order/create-order.component';
-import { AddAderecoComponent } from './pages/backoffice/add-adereco/add-adereco.component';
+import { AddAderecoComponent } from './components/add-adereco/add-adereco.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import {
   SocialLoginModule,
@@ -89,7 +89,7 @@ import { environment } from '../environments/environment';
       enabled: environment.production,
       // Register the ServiceWorker as soon as the application is stable
       // or after 30 seconds (whichever comes first).
-      registrationStrategy: 'registerWhenStable:30000'
+      registrationStrategy: 'registerWhenStable:30000',
     }),
   ],
   providers: [
