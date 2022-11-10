@@ -1,0 +1,14 @@
+name: CI and Build package
+'on':
+  push:
+    branches:
+      - '*'
+      - '*/*'
+      - '**'
+      - '!main'
+jobs:
+  ci_and_build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: npm ci --legacy-peer-deps && npm run build
