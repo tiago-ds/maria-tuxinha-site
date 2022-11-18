@@ -24,8 +24,4 @@ export class AdminLoginComponent implements OnInit {
       this.router.navigate(['admin']);
     });
   }
-
-  signInWithGoogle(): void {
-    this.socialAuthService.signIn(GoogleLoginProvider.PROVIDER_ID);
-  }
 }
