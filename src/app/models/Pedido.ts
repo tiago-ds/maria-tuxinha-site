@@ -17,7 +17,8 @@ export type Pedido = {
   aderecos: Adereco[],
   cliente: Cliente,
   dueDate: Date,
-  comentarios: string
+  comentarios: string,
+  cabeloComentarios: string
 }
 
 export type BackendResponse<DataType> = {

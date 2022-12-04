@@ -46,7 +46,7 @@ export class CreateOrderComponent implements OnInit {
 
     this.dialog.open(CheckoutComponent, {
       width: '300px',
-      data: this.getAderecos(),
+      data: [this.getAderecos(), this.getHairDescription()],
     });
   }
 
@@ -94,6 +94,10 @@ export class CreateOrderComponent implements OnInit {
       this.sapatoOptions.find((it) => it.uuid === this.orderForm.value.shoe)
     );
     return aderecos;
+  }
+
+  getHairDescription(): string {
+    return this.orderForm.value.hairDescription;
   }
 
   onShoesChange(event: any) {

@@ -26,7 +26,7 @@ export class CheckoutComponent implements OnInit {
   constructor(
     private orderService: OrderService,
     public dialogRef: MatDialogRef<CheckoutComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: Adereco[],
+    @Inject(MAT_DIALOG_DATA) public data: any[],
     private _snackBar: MatSnackBar
   ) {
     this.NAME = 'name';
@@ -53,13 +53,15 @@ export class CheckoutComponent implements OnInit {
   }
 
   async finish() {
-    const aderecos: Adereco[] = this.data;
+    const aderecos: Adereco[] = this.data[0];
+    const hairDescription: string = this.data[1];
     const cliente: Cliente = this.clienteForm.value as Cliente;
     const pedido: Pedido = {
       cliente: cliente,
       aderecos: aderecos,
       comentarios: this.extras,
-      dueDate: this.getDateFourteenDaysAhead()
+      cabeloComentarios: hairDescription,
+      dueDate: this.getDateFourteenDaysAhead(),
     };
     const result = await this.orderService.createOrder(pedido);
     if (result) {
