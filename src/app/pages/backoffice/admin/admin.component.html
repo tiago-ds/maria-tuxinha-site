@@ -1,6 +1,10 @@
 <mat-tab-group animationDuration="0ms">
   <mat-tab label="Tons de pele">
-    <button mat-raised-button color="primary" (click)="openDialog('Pele')">
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="openAderecoDialog('Pele')"
+    >
       <mat-icon>add</mat-icon>Adicionar novo
     </button>
     <div class="items">
@@ -17,7 +21,11 @@
     </div>
   </mat-tab>
   <mat-tab label="Cabelos"
-    ><button mat-raised-button color="primary" (click)="openDialog('Cabelo')">
+    ><button
+      mat-raised-button
+      color="primary"
+      (click)="openAderecoDialog('Cabelo')"
+    >
       <mat-icon>add</mat-icon>Adicionar novo
     </button>
     <div class="items">
@@ -34,7 +42,11 @@
     </div>
   </mat-tab>
   <mat-tab label="Vestidos">
-    <button mat-raised-button color="primary" (click)="openDialog('Vestido')">
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="openAderecoDialog('Vestido')"
+    >
       <mat-icon>add</mat-icon>Adicionar novo
     </button>
     <div class="items">
@@ -51,7 +63,11 @@
     </div>
   </mat-tab>
   <mat-tab label="Sapatos">
-    <button mat-raised-button color="primary" (click)="openDialog('Sapato')">
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="openAderecoDialog('Sapato')"
+    >
       <mat-icon>add</mat-icon>Adicionar novo
     </button>
     <div class="items">
@@ -68,5 +84,9 @@
     </div>
   </mat-tab>
   <mat-tab label="Acessórios">Content 1</mat-tab>
-  <mat-tab label="Galeria">Content 1</mat-tab>
+  <mat-tab label="Galeria"
+    ><button mat-raised-button color="primary" (click)="openGalleryDialog()">
+      <mat-icon>add</mat-icon>Adicionar novo
+    </button></mat-tab
+  >
 </mat-tab-group>
