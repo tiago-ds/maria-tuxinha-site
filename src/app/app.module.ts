@@ -44,6 +44,8 @@ import { HeaderComponent } from './components/header/header.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { AddPhotoComponent } from './components/add-photo/add-photo.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -59,6 +61,7 @@ import { environment } from '../environments/environment';
     AdminLoginComponent,
     AdminComponent,
     HeaderComponent,
+    AddPhotoComponent,
   ],
   imports: [
     BrowserModule,
@@ -77,6 +80,7 @@ import { environment } from '../environments/environment';
     MatBadgeModule,
     MatDialogModule,
     MatCardModule,
+    MatProgressSpinnerModule,
     MatSnackBarModule,
     MatSidenavModule,
     MatTabsModule,
@@ -118,6 +122,7 @@ import { environment } from '../environments/environment';
     OrderAssemblerItemComponent,
     OrderAssemblerGroupComponent,
     HeaderComponent,
+    AddPhotoComponent,
   ],
 })
 export class AppModule {}

@@ -1,0 +1,44 @@
+<div class="dialog-root">
+  <h3>Adicionar foto</h3>
+  <div class="body">
+    <form [formGroup]="photoForm" class="center">
+      <mat-form-field appearance="fill">
+        <mat-label>Titulo</mat-label>
+        <input matInput formControlName="title" />
+        <mat-error *ngIf="photoForm.get('title')?.invalid"
+          >Título é obrigatório</mat-error
+        >
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Descrição</mat-label>
+        <input matInput formControlName="subtitle" />
+        <mat-error *ngIf="photoForm.get('subtitle')?.invalid"
+          >Descrição é obrigatória</mat-error
+        >
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Link de foto no Drive</mat-label>
+        <input
+          formControlName="pictureUrl"
+          matInput
+          placeholder="https://drive.google.com/file/d/1UOkSpjumC4judHghmECY_dcjrim1_DMh/view?usp=sharing"
+        />
+        <mat-error *ngIf="photoForm.get('pictureUrl')?.invalid"
+          >Verifique a URL</mat-error
+        >
+      </mat-form-field>
+    </form>
+    <h3>Prévia</h3>
+    <div class="preview {{ currentLink !== '' ? 'show' : '' }}">
+      <mat-spinner *ngIf="!imageLoaded"></mat-spinner>
+      <img
+        (load)="onImageLoad()"
+        (error)="onImageError($event)"
+        [src]="currentLink"
+      />
+    </div>
+  </div>
+  <div class="footer">
+    <button mat-raised-button color="primary" (click)="send()">Criar</button>
+  </div>
+</div>

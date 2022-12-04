@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AddAderecoComponent } from 'src/app/components/add-adereco/add-adereco.component';
+import { AddPhotoComponent } from 'src/app/components/add-photo/add-photo.component';
 import { AderecoService } from 'src/app/services/adereco.service';
 
 @Component({
@@ -35,10 +36,16 @@ export class AdminComponent implements OnInit {
     this.sapatos = this.aderecos.filter((it: any) => it.type === 'sapato');
   }
 
-  openDialog(type: string) {
+  openAderecoDialog(type: string) {
     this.dialog.open(AddAderecoComponent, {
       width: '300px',
       data: type,
+    });
+  }
+
+  openGalleryDialog() {
+    this.dialog.open(AddPhotoComponent, {
+      width: 'fit-content',
     });
   }
 }
