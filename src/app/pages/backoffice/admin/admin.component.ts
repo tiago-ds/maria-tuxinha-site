@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AddAderecoComponent } from 'src/app/components/add-adereco/add-adereco.component';
-import { AddPhotoComponent } from 'src/app/components/add-photo/add-photo.component';
+import { PhotoDialogComponent } from 'src/app/components/photo-dialog/photo-dialog.component';
 import { AderecoService } from 'src/app/services/adereco.service';
 
 @Component({
@@ -44,7 +44,7 @@ export class AdminComponent implements OnInit {
   }
 
   openGalleryDialog() {
-    this.dialog.open(AddPhotoComponent, {
+    this.dialog.open(PhotoDialogComponent, {
       width: 'fit-content',
     });
   }

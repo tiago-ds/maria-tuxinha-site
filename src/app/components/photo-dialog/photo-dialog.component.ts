@@ -6,21 +6,20 @@ import {
 } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Photo } from 'src/app/models/Photo';
 import { GalleryService } from 'src/app/services/gallery.service';
 import { parseDriveLink } from 'src/app/utils/aderecoUtils';
 
 @Component({
-  selector: 'txa-add-photo',
-  templateUrl: './add-photo.component.html',
-  styleUrls: ['./add-photo.component.scss'],
+  selector: 'txa-photo-dialog',
+  templateUrl: './photo-dialog.component.html',
+  styleUrls: ['./photo-dialog.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AddPhotoComponent implements OnInit {
-  // Form controllers
-
+export class PhotoDialogComponent implements OnInit {
   currentLink = '';
   imageLoaded = false;
-  showPreview = false;
+  types = ['gallery', 'carousel', 'hidden'];
 
   photoForm: FormGroup = new FormGroup({});
 
@@ -31,13 +30,13 @@ export class AddPhotoComponent implements OnInit {
 
   ngOnInit(): void {
     this.initForm();
-    // this.photoForm.controls[this.TYPE].setValue(this.data);
-    // this.photoForm.controls[this.TYPE].updateValueAndValidity();
     this.photoForm.get('pictureUrl')?.valueChanges.subscribe((value) => {
-      console.log(value);
       this.currentLink = parseDriveLink(value);
-      console.log(this.currentLink);
       this.imageLoaded = false;
+    });
+
+    this.photoForm.valueChanges.subscribe((value) => {
+      console.log(this.photoForm);
     });
   }
 
@@ -54,23 +53,16 @@ export class AddPhotoComponent implements OnInit {
   }
 
   send() {
-    const newAdereco: any = this.photoForm.value;
-    newAdereco.pictureUrl = parseDriveLink(newAdereco.pictureUrl);
-    newAdereco.isAvailable = true;
-    newAdereco.lastModified = new Date();
+    const photo: Photo = this.photoForm.value;
+    photo.pictureUrl = parseDriveLink(photo.pictureUrl);
+    this.galleryService.addPhoto(photo);
   }
 
   onImageLoad() {
-    console.log('image loaded');
-
-    this.showPreview = true;
     this.imageLoaded = true;
   }
 
   onImageError(event: ErrorEvent) {
-    console.log(event);
-
-    this.showPreview = false;
     this.imageLoaded = false;
   }
 }

@@ -17,6 +17,15 @@
         >
       </mat-form-field>
       <mat-form-field appearance="fill">
+        <mat-label>Tipo</mat-label>
+        <mat-select formControlName="type">
+          <mat-option value="" [disabled]="true"></mat-option>
+          <mat-option *ngFor="let type of types" [value]="type">
+            {{ type }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
         <mat-label>Link de foto no Drive</mat-label>
         <input
           formControlName="pictureUrl"
@@ -28,7 +37,7 @@
         >
       </mat-form-field>
     </form>
-    <h3>Prévia</h3>
+    <h4>Prévia</h4>
     <div class="preview {{ currentLink !== '' ? 'show' : '' }}">
       <mat-spinner *ngIf="!imageLoaded"></mat-spinner>
       <img
@@ -39,6 +48,13 @@
     </div>
   </div>
   <div class="footer">
-    <button mat-raised-button color="primary" (click)="send()">Criar</button>
+    <button
+      mat-raised-button
+      color="primary"
+      [disabled]="photoForm.invalid"
+      (click)="send()"
+    >
+      Criar
+    </button>
   </div>
 </div>
