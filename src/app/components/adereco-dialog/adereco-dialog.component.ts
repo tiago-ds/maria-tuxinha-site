@@ -6,9 +6,9 @@ import { AderecoService } from 'src/app/services/adereco.service';
 import { parseDriveLink } from '../../utils/aderecoUtils';
 
 @Component({
-  selector: 'app-add-adereco',
-  templateUrl: './add-adereco.component.html',
-  styleUrls: ['./add-adereco.component.scss'],
+  selector: 'app-adereco-dialog',
+  templateUrl: './adereco-dialog.component.html',
+  styleUrls: ['./adereco-dialog.component.scss'],
 })
 export class AddAderecoComponent implements OnInit {
   // Form controllers

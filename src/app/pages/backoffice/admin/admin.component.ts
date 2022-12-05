@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { AddAderecoComponent } from 'src/app/components/add-adereco/add-adereco.component';
+import { AddAderecoComponent } from 'src/app/components/adereco-dialog/adereco-dialog.component';
 import { PhotoDialogComponent } from 'src/app/components/photo-dialog/photo-dialog.component';
 import { AderecoService } from 'src/app/services/adereco.service';
 

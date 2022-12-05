@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CreateOrderComponent } from './pages/user/create-order/create-order.component';
-import { AddAderecoComponent } from './components/add-adereco/add-adereco.component';
+import { AddAderecoComponent } from './components/adereco-dialog/adereco-dialog.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import {
   SocialLoginModule,
