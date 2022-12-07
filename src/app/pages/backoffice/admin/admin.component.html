@@ -1,92 +1,44 @@
 <mat-tab-group animationDuration="0ms">
-  <mat-tab label="Tons de pele">
-    <button
-      mat-raised-button
-      color="primary"
-      (click)="openAderecoDialog('Pele')"
-    >
-      <mat-icon>add</mat-icon>Adicionar novo
-    </button>
-    <div class="items">
-      <mat-card *ngFor="let item of peles" class="example-card">
-        <mat-card-title-group>
-          <mat-card-title>{{ item.name }}</mat-card-title>
-          <img mat-card-sm-image [src]="item.pictureUrl" />
-        </mat-card-title-group>
-        <mat-card-actions>
-          <button mat-button>Editar</button>
-          <button mat-button>Remover</button>
-        </mat-card-actions>
-      </mat-card>
-    </div>
-  </mat-tab>
-  <mat-tab label="Cabelos"
-    ><button
-      mat-raised-button
-      color="primary"
-      (click)="openAderecoDialog('Cabelo')"
-    >
-      <mat-icon>add</mat-icon>Adicionar novo
-    </button>
-    <div class="items">
-      <mat-card *ngFor="let item of cabelos" class="example-card">
-        <mat-card-title-group>
-          <mat-card-title>{{ item.name }}</mat-card-title>
-          <img mat-card-sm-image [src]="item.pictureUrl" />
-        </mat-card-title-group>
-        <mat-card-actions>
-          <button mat-button>Editar</button>
-          <button mat-button>Remover</button>
-        </mat-card-actions>
-      </mat-card>
-    </div>
-  </mat-tab>
-  <mat-tab label="Vestidos">
-    <button
-      mat-raised-button
-      color="primary"
-      (click)="openAderecoDialog('Vestido')"
-    >
-      <mat-icon>add</mat-icon>Adicionar novo
-    </button>
-    <div class="items">
-      <mat-card *ngFor="let item of vestidos" class="example-card">
-        <mat-card-title-group>
-          <mat-card-title>{{ item.name }}</mat-card-title>
-          <img mat-card-sm-image [src]="item.pictureUrl" />
-        </mat-card-title-group>
-        <mat-card-actions>
-          <button mat-button>Editar</button>
-          <button mat-button>Remover</button>
-        </mat-card-actions>
-      </mat-card>
-    </div>
-  </mat-tab>
-  <mat-tab label="Sapatos">
-    <button
-      mat-raised-button
-      color="primary"
-      (click)="openAderecoDialog('Sapato')"
-    >
-      <mat-icon>add</mat-icon>Adicionar novo
-    </button>
-    <div class="items">
-      <mat-card *ngFor="let item of sapatos" class="example-card">
-        <mat-card-title-group>
-          <mat-card-title>{{ item.name }}</mat-card-title>
-          <img mat-card-sm-image [src]="item.pictureUrl" />
-        </mat-card-title-group>
-        <mat-card-actions>
-          <button mat-button>Editar</button>
-          <button mat-button>Remover</button>
-        </mat-card-actions>
-      </mat-card>
-    </div>
-  </mat-tab>
-  <mat-tab label="Acessórios">Content 1</mat-tab>
   <mat-tab label="Galeria"
     ><button mat-raised-button color="primary" (click)="openGalleryDialog()">
       <mat-icon>add</mat-icon>Adicionar novo
-    </button></mat-tab
-  >
+    </button>
+    <div class="items gallery">
+      <mat-card *ngFor="let item of photos" class="admin-gallery-card">
+        <mat-card-header>
+          <mat-card-title>{{ item.title }}</mat-card-title>
+        </mat-card-header>
+        <img [src]="item.pictureUrl" />
+        <mat-card-content>
+          <p>
+            {{ item.subtitle }}
+          </p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button>Editar</button>
+          <button mat-button>
+            {{ item.type === "hidden" ? "Mostrar" : "Esconder" }}
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </mat-tab>
+
+  <mat-tab *ngFor="let item of tabs" [label]="item.label">
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="openAderecoDialog(item.dialog)"
+    >
+      <mat-icon>add</mat-icon>{{ item.buttonLabel }}
+    </button>
+    <div class="items">
+      <txa-inventory-item-card
+        *ngFor="let content of item.content"
+        [item]="content"
+      ></txa-inventory-item-card>
+    </div>
+  </mat-tab>
+
+  <mat-tab label="Acessórios">Content 1</mat-tab>
 </mat-tab-group>

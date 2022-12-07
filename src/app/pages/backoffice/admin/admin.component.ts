@@ -3,6 +3,8 @@ import { MatDialog } from '@angular/material/dialog';
 import { AddAderecoComponent } from 'src/app/components/adereco-dialog/adereco-dialog.component';
 import { PhotoDialogComponent } from 'src/app/components/photo-dialog/photo-dialog.component';
 import { AderecoService } from 'src/app/services/adereco.service';
+import { GalleryService } from 'src/app/services/gallery.service';
+import { isMobile } from '../../../utils/screen.utils';
 
 @Component({
   templateUrl: './admin.component.html',
@@ -14,9 +16,12 @@ export class AdminComponent implements OnInit {
   vestidos: any;
   cabelos: any;
   sapatos: any;
+  photos: any;
+  tabs: any;
 
   constructor(
     private aderecoService: AderecoService,
+    private galleryService: GalleryService,
     public dialog: MatDialog
   ) {}
 
@@ -26,6 +31,7 @@ export class AdminComponent implements OnInit {
 
   async getAderecosFromApi() {
     this.aderecos = await this.aderecoService.getAderecos();
+    this.photos = await this.galleryService.getAllPhotos();
     this.distributeAderecos();
   }
 
@@ -34,6 +40,32 @@ export class AdminComponent implements OnInit {
     this.vestidos = this.aderecos.filter((it: any) => it.type === 'vestido');
     this.cabelos = this.aderecos.filter((it: any) => it.type === 'cabelo');
     this.sapatos = this.aderecos.filter((it: any) => it.type === 'sapato');
+    this.tabs = [
+      {
+        label: 'Tons de pele',
+        content: this.peles,
+        buttonLabel: 'Adicionar tom de pele',
+        dialog: 'Pele',
+      },
+      {
+        label: 'Vestidos',
+        content: this.vestidos,
+        buttonLabel: 'Adicionar vestido',
+        dialog: 'Vestido',
+      },
+      {
+        label: 'Cabelos',
+        content: this.cabelos,
+        buttonLabel: 'Adicionar cabelo',
+        dialog: 'Cabelo',
+      },
+      {
+        label: 'Sapatos',
+        content: this.sapatos,
+        buttonLabel: 'Adicionar sapato',
+        dialog: 'Sapato',
+      },
+    ];
   }
 
   openAderecoDialog(type: string) {
@@ -45,7 +77,9 @@ export class AdminComponent implements OnInit {
 
   openGalleryDialog() {
     this.dialog.open(PhotoDialogComponent, {
-      width: 'fit-content',
+      panelClass: 'photo-dialog',
+      minWidth: isMobile() ? '100vw' : '500px',
+      minHeight: isMobile() ? '100vh' : '700px',
     });
   }
 }

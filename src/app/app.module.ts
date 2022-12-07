@@ -46,6 +46,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { PhotoDialogComponent } from './components/photo-dialog/photo-dialog.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { InventoryItemCardComponent } from './components/inventory-item-card/inventory-item-card.component';
 
 @NgModule({
   declarations: [
@@ -62,6 +63,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     AdminComponent,
     HeaderComponent,
     PhotoDialogComponent,
+    InventoryItemCardComponent,
   ],
   imports: [
     BrowserModule,
@@ -105,7 +107,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
           {
             id: GoogleLoginProvider.PROVIDER_ID,
             provider: new GoogleLoginProvider(
-              '450360262247-1hrno65tcabhre20dfeeegbkc6vus2aj.apps.googleusercontent.com'
+              '989024145127-fhglv8qpsumv2nifo5gign4q32r9nllh.apps.googleusercontent.com'
             ),
           },
         ],
@@ -123,6 +125,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     OrderAssemblerGroupComponent,
     HeaderComponent,
     PhotoDialogComponent,
+    InventoryItemCardComponent,
   ],
 })
 export class AppModule {}
