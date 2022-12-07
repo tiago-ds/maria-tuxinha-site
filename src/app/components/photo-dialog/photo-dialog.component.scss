@@ -1,20 +1,15 @@
-input {
-  width: 300px;
-}
-
-mat-form-field {
-  width: 100%;
-}
-
 .dialog-root {
   display: flex;
   flex-direction: column;
   width: 500px;
-  height: 700px;
 
-  h3 {
+  h3,
+  h4 {
     font-family: "Josefin Sans", sans-serif;
     font-weight: bold;
+  }
+
+  h3 {
     font-size: 1.5rem;
     margin-top: 1em;
     margin-bottom: 2em;
@@ -24,7 +19,10 @@ mat-form-field {
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: 100%;
+
+    mat-form-field {
+      width: 100%;
+    }
 
     .center {
       display: flex;
@@ -40,6 +38,7 @@ mat-form-field {
       justify-content: center;
       align-items: center;
       visibility: hidden;
+      flex: 1;
 
       &.show {
         visibility: visible;
@@ -59,5 +58,35 @@ mat-form-field {
     justify-content: flex-end;
     align-items: center;
     width: 100%;
+
+    button {
+      margin: 0 1em;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .dialog-root {
+    width: 100vw;
+    height: 100vh;
+
+    .body {
+      width: 100%;
+      height: 100%;
+      .preview {
+        flex: 1;
+
+        img {
+          height: 150px;
+        }
+      }
+    }
+
+    .footer {
+      position: absolute;
+      bottom: 20px;
+      right: 0;
+      width: 100%;
+    }
   }
 }

@@ -39,7 +39,7 @@
     </form>
     <h4>Prévia</h4>
     <div class="preview {{ currentLink !== '' ? 'show' : '' }}">
-      <mat-spinner *ngIf="!imageLoaded"></mat-spinner>
+      <mat-spinner diameter="50" *ngIf="!imageLoaded"></mat-spinner>
       <img
         (load)="onImageLoad()"
         (error)="onImageError($event)"
@@ -48,8 +48,10 @@
     </div>
   </div>
   <div class="footer">
+    <button mat-button mat-dialog-close color="secondary">Cancelar</button>
     <button
       mat-raised-button
+      mat-dialog-close
       color="primary"
       [disabled]="photoForm.invalid"
       (click)="send()"
