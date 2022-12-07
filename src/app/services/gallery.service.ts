@@ -13,6 +13,22 @@ export class GalleryService {
 
   constructor(private http: HttpClient) {}
 
+  async getAllPhotos(): Promise<Photo[]> {
+    const requestUrl = new URL(`${this.apiUrl}${this.baseUrl}/all`);
+
+    try {
+      const response = await this.http
+        .get<BackendResponse<Photo[]>>(requestUrl.toString())
+        .toPromise();
+      if (!response?.success || response?.data == null) {
+        throw new Error('RequestFailedError');
+      }
+      return response.data;
+    } catch (error) {
+      throw new Error('RequestFailedError');
+    }
+  }
+
   async addPhoto(photo: Photo): Promise<boolean> {
     const requestUrl = new URL(`${this.apiUrl}${this.baseUrl}`);
 
