@@ -5,7 +5,7 @@
   <ng-container [ngTemplateOutlet]="pages"></ng-container>
 </header>
 
-<div class="mobile-menu">
+<div *ngIf="!isAdmin" class="mobile-menu">
   <mat-icon
     class="{{ menuOpened ? 'close' : 'open' }}-menu"
     (click)="menuOpened = !menuOpened"
@@ -13,7 +13,10 @@
   >
 </div>
 
-<div class="sidebar-mobile {{ menuOpened ? 'open' : 'closed' }}">
+<div
+  *ngIf="!isAdmin"
+  class="sidebar-mobile {{ menuOpened ? 'open' : 'closed' }}"
+>
   <ng-container [ngTemplateOutlet]="pages"></ng-container>
   <div class="backdrop"></div>
 </div>
