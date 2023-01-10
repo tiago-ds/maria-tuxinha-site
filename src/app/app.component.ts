@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Maria Tuxinha';
+
+  get isAdmin() {
+    return window.location.pathname.startsWith('/admin');
+  }
 }
