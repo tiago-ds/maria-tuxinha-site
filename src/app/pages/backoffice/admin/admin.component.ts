@@ -79,7 +79,7 @@ export class AdminComponent implements OnInit {
     this.dialog.open(PhotoDialogComponent, {
       panelClass: 'photo-dialog',
       minWidth: isMobile() ? '100vw' : '500px',
-      minHeight: isMobile() ? '100vh' : '700px',
+      minHeight: isMobile() ? '100vh' : '90vh',
     });
   }
 }
