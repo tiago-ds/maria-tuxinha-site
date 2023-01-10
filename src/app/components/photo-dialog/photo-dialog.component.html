@@ -41,6 +41,7 @@
     <div class="preview {{ currentLink !== '' ? 'show' : '' }}">
       <mat-spinner diameter="50" *ngIf="!imageLoaded"></mat-spinner>
       <img
+        *ngIf="currentLink !== ''"
         (load)="onImageLoad()"
         (error)="onImageError($event)"
         [src]="currentLink"
