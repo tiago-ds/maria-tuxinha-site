@@ -4,7 +4,11 @@
       <mat-icon>add</mat-icon>Adicionar novo
     </button>
     <div class="items gallery">
-      <mat-card *ngFor="let item of photos" class="admin-gallery-card">
+      <mat-card
+        *ngFor="let item of photos"
+        class="admin-gallery-card"
+        [class.hidden]="item.type === 'hidden'"
+      >
         <mat-card-header>
           <mat-card-title>{{ item.title }}</mat-card-title>
         </mat-card-header>
