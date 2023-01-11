@@ -23,18 +23,8 @@ button {
   margin: 8px 0;
   border-radius: 8px;
 
-  &.hidden {
-    filter: grayscale(1);
-    background-color: rgb(224, 224, 224);
-    color: rgb(174, 174, 174);
-
-    img {
-      opacity: 50%;
-    }
-
-    .actions {
-      color: black;
-    }
+  &.hidden img {
+    opacity: 50%;
   }
 
   img {
