@@ -1,0 +1,17 @@
+<mat-card class="admin-gallery-card" [class.hidden]="item?.type === 'hidden'">
+  <mat-card-header>
+    <mat-card-title>{{ item?.title }}</mat-card-title>
+  </mat-card-header>
+  <img [src]="item?.pictureUrl" />
+  <mat-card-content>
+    <p>
+      {{ item?.subtitle }}
+    </p>
+  </mat-card-content>
+  <mat-card-actions class="actions">
+    <button mat-button>Editar</button>
+    <button mat-button>
+      {{ item?.type === "hidden" ? "Mostrar" : "Esconder" }}
+    </button>
+  </mat-card-actions>
+</mat-card>

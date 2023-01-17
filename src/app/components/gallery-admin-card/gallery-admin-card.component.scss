@@ -1,0 +1,30 @@
+.admin-gallery-card {
+  width: 200px;
+  margin: 8px 0;
+  border-radius: 8px;
+
+  --hidden: #ffffff;
+  --hidden-alt: #f3f3f3;
+
+  &.hidden {
+    opacity: 80%;
+    background: repeating-linear-gradient(
+      45deg,
+      var(--hidden) 0,
+      var(--hidden-alt) 1px,
+      var(--hidden) 0.75em
+    );
+  }
+
+  img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+
+  .actions {
+    display: flex;
+    justify-content: space-between;
+  }
+}

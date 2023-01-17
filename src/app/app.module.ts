@@ -47,6 +47,7 @@ import { environment } from '../environments/environment';
 import { PhotoDialogComponent } from './components/photo-dialog/photo-dialog.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { InventoryItemCardComponent } from './components/inventory-item-card/inventory-item-card.component';
+import { GalleryAdminCardComponent } from './components/gallery-admin-card/gallery-admin-card.component';
 
 @NgModule({
   declarations: [
@@ -64,6 +65,7 @@ import { InventoryItemCardComponent } from './components/inventory-item-card/inv
     HeaderComponent,
     PhotoDialogComponent,
     InventoryItemCardComponent,
+    GalleryAdminCardComponent,
   ],
   imports: [
     BrowserModule,
