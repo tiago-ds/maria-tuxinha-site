@@ -1,33 +1,15 @@
 <mat-tab-group animationDuration="0ms">
   <mat-tab label="Galeria"
     ><button mat-raised-button color="primary" (click)="openGalleryDialog()">
-      <mat-icon>add</mat-icon>Adicionar novo
+      <mat-icon>add</mat-icon>Adicionar nova foto
     </button>
     <div class="items gallery">
-      <mat-card
+      <txa-gallery-admin-card
         *ngFor="let item of photos"
-        class="admin-gallery-card"
-        [class.hidden]="item.type === 'hidden'"
-      >
-        <mat-card-header>
-          <mat-card-title>{{ item.title }}</mat-card-title>
-        </mat-card-header>
-        <img [src]="item.pictureUrl" />
-        <mat-card-content>
-          <p>
-            {{ item.subtitle }}
-          </p>
-        </mat-card-content>
-        <mat-card-actions class="actions">
-          <button mat-button>Editar</button>
-          <button mat-button>
-            {{ item.type === "hidden" ? "Mostrar" : "Esconder" }}
-          </button>
-        </mat-card-actions>
-      </mat-card>
+        [item]="item"
+      ></txa-gallery-admin-card>
     </div>
   </mat-tab>
-
   <mat-tab *ngFor="let item of tabs" [label]="item.label">
     <button
       mat-raised-button
@@ -44,5 +26,5 @@
     </div>
   </mat-tab>
 
-  <mat-tab label="Acessórios">Content 1</mat-tab>
+  <mat-tab label="Acessórios"></mat-tab>
 </mat-tab-group>
