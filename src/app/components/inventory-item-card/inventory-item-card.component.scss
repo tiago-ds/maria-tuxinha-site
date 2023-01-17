@@ -1,9 +1,30 @@
 .inventory-card {
-  width: 240px;
+  width: 200px;
   margin: 8px 0;
   border-radius: 8px;
 
+  --available: #ffffff;
+  --available-alt: #f3f3f3;
+
+  &.available {
+    opacity: 80%;
+    background: repeating-linear-gradient(
+      45deg,
+      var(--available) 0,
+      var(--available-alt) 1px,
+      var(--available) 0.75em
+    );
+  }
+
   img {
-    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+
+  .actions {
+    display: flex;
+    justify-content: space-between;
   }
 }

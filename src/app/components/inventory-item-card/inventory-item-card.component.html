@@ -1,12 +1,12 @@
-<mat-card class="inventory-card">
-  <mat-card-title-group>
+<mat-card class="inventory-card" [class.available]="!item?.isAvailable">
+  <mat-card-header>
     <mat-card-title>{{ item?.name }}</mat-card-title>
-    <img mat-card-sm-image [src]="item?.pictureUrl" />
-  </mat-card-title-group>
-  <mat-card-actions>
+  </mat-card-header>
+  <img mat-card-sm-image [src]="item?.pictureUrl" />
+  <mat-card-actions class="actions">
     <button mat-button>Editar</button>
     <button mat-button>
-      {{ !item?.isAvailable ? "Mostrar" : "Esconder" }}
+      {{ item?.isAvailable ? "Esconder" : "Mostrar" }}
     </button>
   </mat-card-actions>
 </mat-card>
