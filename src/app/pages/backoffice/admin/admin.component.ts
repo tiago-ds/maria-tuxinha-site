@@ -20,23 +20,7 @@ export class AdminComponent implements OnInit {
     private aderecoService: AderecoService,
     private galleryService: GalleryService,
     public dialogs: DialogsService
-  ) {}
-
-  ngOnInit(): void {
-    this.getAderecosFromApi();
-  }
-
-  async getAderecosFromApi() {
-    this.aderecos = await this.aderecoService.getAderecos();
-    this.photos = await this.galleryService.getAllPhotos();
-    this.distributeAderecos();
-  }
-
-  distributeAderecos() {
-    this.peles = this.aderecos.filter((it: any) => it.type === 'pele');
-    this.vestidos = this.aderecos.filter((it: any) => it.type === 'vestido');
-    this.cabelos = this.aderecos.filter((it: any) => it.type === 'cabelo');
-    this.sapatos = this.aderecos.filter((it: any) => it.type === 'sapato');
+  ) {
     this.tabs = [
       {
         label: 'Tons de pele',
@@ -63,5 +47,30 @@ export class AdminComponent implements OnInit {
         dialog: 'Sapato',
       },
     ];
+  }
+
+  ngOnInit(): void {
+    this.getAderecosFromApi();
+  }
+
+  async getAderecosFromApi() {
+    this.aderecos = await this.aderecoService.getAderecos();
+    this.photos = await this.galleryService.getAllPhotos();
+    this.distributeAderecos();
+  }
+
+  distributeAderecos() {
+    this.tabs[0].content = this.aderecos.filter(
+      (it: any) => it.type === 'pele'
+    );
+    this.tabs[1].content = this.aderecos.filter(
+      (it: any) => it.type === 'vestido'
+    );
+    this.tabs[2].content = this.aderecos.filter(
+      (it: any) => it.type === 'cabelo'
+    );
+    this.tabs[3].content = this.aderecos.filter(
+      (it: any) => it.type === 'sapato'
+    );
   }
 }
