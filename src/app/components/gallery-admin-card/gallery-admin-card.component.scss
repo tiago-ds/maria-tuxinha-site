@@ -7,7 +7,7 @@
   --hidden-alt: #f3f3f3;
 
   &.hidden {
-    opacity: 80%;
+    opacity: 75%;
     background: repeating-linear-gradient(
       45deg,
       var(--hidden) 0,
@@ -21,6 +21,10 @@
     height: 200px;
     object-fit: cover;
     border-radius: 8px;
+  }
+
+  .content {
+    height: 40px;
   }
 
   .actions {
