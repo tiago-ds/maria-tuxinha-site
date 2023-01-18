@@ -16,6 +16,9 @@ export class AddAderecoComponent implements OnInit {
   NAME: string;
   LINK: string;
 
+  currentLink = '';
+  imageLoaded = false;
+
   aderecoForm: FormGroup = new FormGroup({});
 
   constructor(
@@ -29,6 +32,12 @@ export class AddAderecoComponent implements OnInit {
 
   ngOnInit(): void {
     this.initForm();
+    this.aderecoForm.get('pictureUrl')?.valueChanges.subscribe((value) => {
+      console.log(value);
+      this.currentLink = '';
+      this.currentLink = parseDriveLink(value);
+      this.imageLoaded = false;
+    });
     this.aderecoForm.controls[this.TYPE].setValue(this.data);
     this.aderecoForm.controls[this.TYPE].updateValueAndValidity();
   }
@@ -50,5 +59,13 @@ export class AddAderecoComponent implements OnInit {
     newAdereco.isAvailable = true;
     newAdereco.lastModified = new Date();
     this.aderecoService.createAdereco(newAdereco);
+  }
+
+  onImageLoad() {
+    this.imageLoaded = true;
+  }
+
+  onImageError(event: ErrorEvent) {
+    this.imageLoaded = false;
   }
 }

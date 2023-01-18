@@ -45,17 +45,16 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        visibility: hidden;
         flex: 1;
-
-        &.show {
-          visibility: visible;
-        }
 
         img {
           width: 250px;
           height: 250px;
           object-fit: cover;
+
+          &.hidden {
+            visibility: hidden;
+          }
         }
       }
     }

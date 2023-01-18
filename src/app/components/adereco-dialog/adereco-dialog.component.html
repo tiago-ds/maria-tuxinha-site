@@ -1,26 +1,38 @@
-<h3>Criar um adereço no banco</h3>
-<form [formGroup]="aderecoForm" class="center">
-  <mat-form-field appearance="fill">
-    <mat-label>Tipo do Adereço</mat-label>
-    <input matInput formControlName="type" readonly />
-  </mat-form-field>
-  <p>
-    <mat-form-field appearance="fill">
-      <mat-label>Nome do Adereço</mat-label>
-      <input formControlName="name" matInput placeholder="Vestido verde" />
-      <mat-hint>Um nome para a identificação</mat-hint>
-    </mat-form-field>
-  </p>
-  <p>
-    <mat-form-field appearance="fill">
-      <mat-label>Link de foto no Drive</mat-label>
-      <input
-        formControlName="pictureUrl"
-        matInput
-        placeholder="https://drive.google.com/file/d/1UOkSpjumC4judHghmECY_dcjrim1_DMh/view?usp=sharing"
+<div class="dialog-root">
+  <h3>Criar um adereço no banco</h3>
+  <div class="body">
+    <form [formGroup]="aderecoForm" class="center">
+      <mat-form-field appearance="fill">
+        <mat-label>Tipo do Adereço</mat-label>
+        <input matInput formControlName="type" readonly />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Nome do Adereço</mat-label>
+        <input formControlName="name" matInput placeholder="Vestido verde" />
+        <mat-hint>Um nome para a identificação</mat-hint>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Link de foto no Drive</mat-label>
+        <input
+          formControlName="pictureUrl"
+          matInput
+          placeholder="https://drive.google.com/file/d/1UOkSpjumC4judHghmECY_dcjrim1_DMh/view?usp=sharing"
+        />
+        <mat-hint>Checar se está compartilhando com todos</mat-hint>
+      </mat-form-field>
+    </form>
+    <h4>Prévia</h4>
+    <div class="preview {{ currentLink !== '' ? 'show' : '' }}">
+      <mat-spinner diameter="50" *ngIf="!imageLoaded"></mat-spinner>
+      <img
+        *ngIf="currentLink !== ''"
+        (load)="onImageLoad()"
+        (error)="onImageError($event)"
+        [src]="currentLink"
       />
-      <mat-hint>Checar se está compartilhando com todos</mat-hint>
-    </mat-form-field>
-  </p>
-</form>
-<button mat-raised-button color="primary" (click)="send()">Criar</button>
+    </div>
+  </div>
+  <div class="footer">
+    <button mat-raised-button color="primary" (click)="send()">Criar</button>
+  </div>
+</div>

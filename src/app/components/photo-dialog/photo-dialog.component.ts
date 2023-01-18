@@ -31,8 +31,8 @@ export class PhotoDialogComponent implements OnInit {
   ngOnInit(): void {
     this.initForm();
     this.photoForm.get('pictureUrl')?.valueChanges.subscribe((value) => {
-      this.currentLink = parseDriveLink(value);
       this.imageLoaded = false;
+      this.currentLink = parseDriveLink(value);
     });
 
     this.photoForm.valueChanges.subscribe((value) => {
