@@ -1,6 +1,10 @@
 <mat-tab-group animationDuration="0ms">
   <mat-tab label="Galeria"
-    ><button mat-raised-button color="primary" (click)="openGalleryDialog()">
+    ><button
+      mat-raised-button
+      color="primary"
+      (click)="dialogs.openGalleryDialog()"
+    >
       <mat-icon>add</mat-icon>Adicionar nova foto
     </button>
     <div class="items gallery">
@@ -14,7 +18,7 @@
     <button
       mat-raised-button
       color="primary"
-      (click)="openAderecoDialog(item.dialog)"
+      (click)="dialogs.openAderecoDialog(item.dialog)"
     >
       <mat-icon>add</mat-icon>{{ item.buttonLabel }}
     </button>

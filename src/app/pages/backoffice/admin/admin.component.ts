@@ -1,10 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
-import { AddAderecoComponent } from 'src/app/components/adereco-dialog/adereco-dialog.component';
-import { PhotoDialogComponent } from 'src/app/components/photo-dialog/photo-dialog.component';
 import { AderecoService } from 'src/app/services/adereco.service';
 import { GalleryService } from 'src/app/services/gallery.service';
-import { isMobile } from '../../../utils/screen.utils';
+import { DialogsService } from '../../../services/dialogs.service';
 
 @Component({
   templateUrl: './admin.component.html',
@@ -22,7 +19,7 @@ export class AdminComponent implements OnInit {
   constructor(
     private aderecoService: AderecoService,
     private galleryService: GalleryService,
-    public dialog: MatDialog
+    public dialogs: DialogsService
   ) {}
 
   ngOnInit(): void {
@@ -66,20 +63,5 @@ export class AdminComponent implements OnInit {
         dialog: 'Sapato',
       },
     ];
-  }
-
-  openAderecoDialog(type: string) {
-    this.dialog.open(AddAderecoComponent, {
-      width: '300px',
-      data: type,
-    });
-  }
-
-  openGalleryDialog() {
-    this.dialog.open(PhotoDialogComponent, {
-      panelClass: 'photo-dialog',
-      minWidth: isMobile() ? '100vw' : '500px',
-      minHeight: isMobile() ? '100vh' : '90vh',
-    });
   }
 }
