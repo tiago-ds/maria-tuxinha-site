@@ -1,5 +1,5 @@
 <div class="dialog-root">
-  <h3>Criar um adereço no banco</h3>
+  <h3>Adicionar um adereço no banco</h3>
   <div class="body">
     <form [formGroup]="aderecoForm" class="center">
       <mat-form-field appearance="fill">
@@ -33,6 +33,14 @@
     </div>
   </div>
   <div class="footer">
-    <button mat-raised-button color="primary" (click)="send()">Criar</button>
+    <button mat-button mat-dialog-close color="secondary">Cancelar</button>
+    <button
+      mat-raised-button
+      color="primary"
+      [disabled]="aderecoForm.invalid"
+      (click)="send()"
+    >
+      Adicionar
+    </button>
   </div>
 </div>
