@@ -22,10 +22,13 @@
       </mat-form-field>
     </form>
     <h4>Prévia</h4>
-    <div class="preview {{ currentLink !== '' ? 'show' : '' }}">
-      <mat-spinner diameter="50" *ngIf="!imageLoaded"></mat-spinner>
+    <div class="preview">
+      <mat-spinner
+        diameter="50"
+        *ngIf="!imageLoaded && currentLink !== ''"
+      ></mat-spinner>
       <img
-        *ngIf="currentLink !== ''"
+        [class.hidden]="!imageLoaded"
         (load)="onImageLoad()"
         (error)="onImageError($event)"
         [src]="currentLink"

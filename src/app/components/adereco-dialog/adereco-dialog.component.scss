@@ -35,7 +35,7 @@
       .center {
         display: flex;
         flex-direction: column;
-        justify-content: flex-start;
+        justify-content: center;
         align-items: center;
         width: 100%;
       }
@@ -45,17 +45,16 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        visibility: hidden;
         flex: 1;
-
-        &.show {
-          visibility: visible;
-        }
 
         img {
           width: 250px;
           height: 250px;
           object-fit: cover;
+
+          &.hidden {
+            visibility: hidden;
+          }
         }
       }
     }

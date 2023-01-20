@@ -33,8 +33,6 @@ export class AddAderecoComponent implements OnInit {
   ngOnInit(): void {
     this.initForm();
     this.aderecoForm.get('pictureUrl')?.valueChanges.subscribe((value) => {
-      console.log(value);
-      this.currentLink = '';
       this.currentLink = parseDriveLink(value);
       this.imageLoaded = false;
     });
