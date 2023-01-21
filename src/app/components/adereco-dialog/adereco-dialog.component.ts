@@ -5,6 +5,12 @@ import { Adereco } from 'src/app/models/Pedido';
 import { AderecoService } from 'src/app/services/adereco.service';
 import { parseDriveLink } from '../../utils/aderecoUtils';
 
+type OpenReasons = 'add' | 'edit';
+
+interface AderecoDialogData {
+  openReason: OpenReasons;
+  adereco?: Adereco;
+}
 @Component({
   selector: 'app-adereco-dialog',
   templateUrl: './adereco-dialog.component.html',
@@ -15,7 +21,7 @@ export class AddAderecoComponent implements OnInit {
   TYPE: string;
   NAME: string;
   LINK: string;
-
+  openReason: OpenReasons;
   currentLink = '';
   imageLoaded = false;
 
@@ -23,8 +29,9 @@ export class AddAderecoComponent implements OnInit {
 
   constructor(
     private aderecoService: AderecoService,
-    @Inject(MAT_DIALOG_DATA) public data: string
+    @Inject(MAT_DIALOG_DATA) public dialogData: AderecoDialogData
   ) {
+    this.openReason = dialogData.openReason;
     this.TYPE = 'type';
     this.NAME = 'name';
     this.LINK = 'pictureUrl';
@@ -36,7 +43,9 @@ export class AddAderecoComponent implements OnInit {
       this.currentLink = parseDriveLink(value);
       this.imageLoaded = false;
     });
-    this.aderecoForm.controls[this.TYPE].setValue(this.data);
+    this.aderecoForm.controls[this.TYPE].setValue(
+      this.dialogData?.adereco?.type
+    );
     this.aderecoForm.controls[this.TYPE].updateValueAndValidity();
   }
 
@@ -49,6 +58,17 @@ export class AddAderecoComponent implements OnInit {
         Validators.pattern('^(https://drive.google.com/)file/d/([^/]+)/.*$')
       ),
     });
+
+    if (this.openReason === 'edit') {
+      this.aderecoForm.controls[this.NAME].setValue(
+        this.dialogData?.adereco?.name
+      );
+      this.aderecoForm.controls[this.NAME].updateValueAndValidity();
+      this.aderecoForm.controls[this.LINK].setValue(
+        this.dialogData?.adereco?.pictureUrl
+      );
+      this.aderecoForm.controls[this.LINK].updateValueAndValidity();
+    }
   }
 
   send() {

@@ -1,5 +1,8 @@
 <div class="dialog-root">
-  <h3>Adicionar um adereço no banco</h3>
+  <h3>
+    {{ dialogData.openReason === "edit" ? "Editar" : "Adicionar" }} um adereço
+    no banco
+  </h3>
   <div class="body">
     <form [formGroup]="aderecoForm" class="center">
       <mat-form-field appearance="fill">
@@ -43,7 +46,7 @@
       [disabled]="aderecoForm.invalid"
       (click)="send()"
     >
-      Adicionar
+      {{ dialogData.openReason === "edit" ? "Editar" : "Adicionar" }}
     </button>
   </div>
 </div>
