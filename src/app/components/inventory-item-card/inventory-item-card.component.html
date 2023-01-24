@@ -4,7 +4,7 @@
   </mat-card-header>
   <img mat-card-sm-image [src]="item?.pictureUrl" />
   <mat-card-actions class="actions">
-    <button mat-button>Editar</button>
+    <button (click)="edit()" mat-button>Editar</button>
     <button mat-button>
       {{ item?.isAvailable ? "Esconder" : "Mostrar" }}
     </button>

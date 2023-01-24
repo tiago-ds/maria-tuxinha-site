@@ -1,16 +1,11 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { AderecoDialogData, OpenReasons } from 'src/app/models/Dialog';
 import { Adereco } from 'src/app/models/Pedido';
 import { AderecoService } from 'src/app/services/adereco.service';
 import { parseDriveLink } from '../../utils/aderecoUtils';
 
-type OpenReasons = 'add' | 'edit';
-
-interface AderecoDialogData {
-  openReason: OpenReasons;
-  adereco?: Adereco;
-}
 @Component({
   selector: 'app-adereco-dialog',
   templateUrl: './adereco-dialog.component.html',
@@ -29,7 +24,8 @@ export class AddAderecoComponent implements OnInit {
 
   constructor(
     private aderecoService: AderecoService,
-    @Inject(MAT_DIALOG_DATA) public dialogData: AderecoDialogData
+    @Inject(MAT_DIALOG_DATA) public dialogData: AderecoDialogData,
+    public dialogRef: MatDialogRef<AddAderecoComponent>
   ) {
     this.openReason = dialogData.openReason;
     this.TYPE = 'type';
@@ -43,10 +39,6 @@ export class AddAderecoComponent implements OnInit {
       this.currentLink = parseDriveLink(value);
       this.imageLoaded = false;
     });
-    this.aderecoForm.controls[this.TYPE].setValue(
-      this.dialogData?.adereco?.type
-    );
-    this.aderecoForm.controls[this.TYPE].updateValueAndValidity();
   }
 
   initForm() {
@@ -64,19 +56,42 @@ export class AddAderecoComponent implements OnInit {
         this.dialogData?.adereco?.name
       );
       this.aderecoForm.controls[this.NAME].updateValueAndValidity();
-      this.aderecoForm.controls[this.LINK].setValue(
-        this.dialogData?.adereco?.pictureUrl
-      );
-      this.aderecoForm.controls[this.LINK].updateValueAndValidity();
+      this.currentLink = this.dialogData?.adereco?.pictureUrl ?? '';
     }
+    this.aderecoForm.controls[this.TYPE].setValue(
+      this.dialogData?.adereco?.type
+    );
+    this.aderecoForm.controls[this.TYPE].updateValueAndValidity();
   }
 
   send() {
-    const newAdereco: Adereco = this.aderecoForm.value as Adereco;
-    newAdereco.pictureUrl = parseDriveLink(newAdereco.pictureUrl);
-    newAdereco.isAvailable = true;
-    newAdereco.lastModified = new Date();
-    this.aderecoService.createAdereco(newAdereco);
+    if (this.openReason === 'edit') {
+      const newAdereco: Adereco = this.dialogData.adereco as Adereco;
+      newAdereco.name = this.aderecoForm.value.name;
+      newAdereco.lastModified = new Date();
+      newAdereco.pictureUrl = this.currentLink;
+      this.aderecoService
+        .editAdereco(newAdereco)
+        .then(() => {
+          this.dialogRef.close({ success: true, adereco: newAdereco });
+        })
+        .catch(() => {
+          this.dialogRef.close({ success: false });
+        });
+    } else {
+      const newAdereco: Adereco = this.aderecoForm.value as Adereco;
+      newAdereco.isAvailable = true;
+      newAdereco.lastModified = new Date();
+      newAdereco.pictureUrl = parseDriveLink(newAdereco.pictureUrl);
+      this.aderecoService
+        .createAdereco(newAdereco)
+        .then(() => {
+          this.dialogRef.close({ success: true, adereco: newAdereco });
+        })
+        .catch(() => {
+          this.dialogRef.close({ success: false });
+        });
+    }
   }
 
   onImageLoad() {

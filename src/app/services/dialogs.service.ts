@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { AddAderecoComponent } from '../components/adereco-dialog/adereco-dialog.component';
 import { PhotoDialogComponent } from '../components/photo-dialog/photo-dialog.component';
+import { AderecoDialogData } from '../models/Dialog';
 import { isMobile } from '../utils/screen.utils';
 
 @Injectable({
@@ -10,12 +11,14 @@ import { isMobile } from '../utils/screen.utils';
 export class DialogsService {
   constructor(public dialog: MatDialog) {}
 
-  openAderecoDialog(type: string) {
-    this.dialog.open(AddAderecoComponent, {
+  openAderecoDialog(
+    dialodData: AderecoDialogData
+  ): MatDialogRef<AddAderecoComponent> {
+    return this.dialog.open(AddAderecoComponent, {
       panelClass: 'photo-dialog',
       minWidth: isMobile() ? '100vw' : '500px',
       minHeight: isMobile() ? '100vh' : '90vh',
-      data: type,
+      data: dialodData,
     });
   }
 

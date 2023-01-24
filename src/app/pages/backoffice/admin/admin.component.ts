@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialogRef } from '@angular/material/dialog';
+import { AddAderecoComponent } from 'src/app/components/adereco-dialog/adereco-dialog.component';
+import { AderecoDialogData } from 'src/app/models/Dialog';
+import { Adereco } from 'src/app/models/Pedido';
 import { AderecoService } from 'src/app/services/adereco.service';
 import { GalleryService } from 'src/app/services/gallery.service';
 import { DialogsService } from '../../../services/dialogs.service';
@@ -26,25 +30,25 @@ export class AdminComponent implements OnInit {
         label: 'Tons de pele',
         content: this.peles,
         buttonLabel: 'Adicionar tom de pele',
-        dialog: 'Pele',
+        dialog: 'pele',
       },
       {
         label: 'Vestidos',
         content: this.vestidos,
         buttonLabel: 'Adicionar vestido',
-        dialog: 'Vestido',
+        dialog: 'vestido',
       },
       {
         label: 'Cabelos',
         content: this.cabelos,
         buttonLabel: 'Adicionar cabelo',
-        dialog: 'Cabelo',
+        dialog: 'cabelo',
       },
       {
         label: 'Sapatos',
         content: this.sapatos,
         buttonLabel: 'Adicionar sapato',
-        dialog: 'Sapato',
+        dialog: 'sapato',
       },
     ];
   }
@@ -72,5 +76,13 @@ export class AdminComponent implements OnInit {
     this.tabs[3].content = this.aderecos.filter(
       (it: any) => it.type === 'sapato'
     );
+  }
+
+  openAderecoDialog(type: string) {
+    const dialogData = {
+      openReason: 'add',
+      adereco: { type } as Adereco,
+    } as AderecoDialogData;
+    this.dialogs.openAderecoDialog(dialogData);
   }
 }

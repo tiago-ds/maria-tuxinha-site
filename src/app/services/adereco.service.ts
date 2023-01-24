@@ -141,4 +141,19 @@ export class AderecoService {
       throw new Error('RequestFailedError');
     }
   }
+
+  async editAdereco(adereco: Adereco): Promise<boolean> {
+    const requestUrl = new URL(`${this.apiUrl}${this.baseUrl}`);
+    try {
+      const response = await this.http
+        .put<BackendResponse<boolean>>(requestUrl.toString(), adereco)
+        .toPromise();
+      if (!response?.success || response?.data == null) {
+        throw new Error('RequestFailedError');
+      }
+      return response.data;
+    } catch (error) {
+      throw new Error('RequestFailedError');
+    }
+  }
 }
