@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CreateOrderComponent } from './pages/user/create-order/create-order.component';
+import { CreateOrderComponent } from './pages/front-office/create-order/create-order.component';
 import { AddAderecoComponent } from './components/adereco-dialog/adereco-dialog.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import {
@@ -31,15 +31,15 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { CarouselModule } from './components/carousel/carousel.module';
 import { MatTabsModule } from '@angular/material/tabs';
 import { NgxMaskModule } from 'ngx-mask';
-import { HomeComponent } from './pages/user/home/home.component';
+import { HomeComponent } from './pages/front-office/home/home.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { GalleryCardComponent } from './components/gallery/gallery-card/gallery-card.component';
 import { GalleryComponent } from './components/gallery/gallery.component';
 import { OrderAssemblerItemComponent } from './components/order-assembler/order-assembler-item/order-assembler-item.component';
 import { OrderAssemblerGroupComponent } from './components/order-assembler/order-assembler-group/order-assembler-group.component';
-import { AdminLoginComponent } from './pages/backoffice/admin-login/admin-login.component';
-import { AdminComponent } from './pages/backoffice/admin/admin.component';
+import { LoginComponent } from './pages/back-office/login/login.component';
+import { InventoryComponent } from './pages/back-office/inventory/inventory.component';
 import { HeaderComponent } from './components/header/header.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { ServiceWorkerModule } from '@angular/service-worker';
@@ -60,8 +60,8 @@ import { GalleryAdminCardComponent } from './components/gallery-admin-card/galle
     GalleryComponent,
     OrderAssemblerItemComponent,
     OrderAssemblerGroupComponent,
-    AdminLoginComponent,
-    AdminComponent,
+    LoginComponent,
+    InventoryComponent,
     HeaderComponent,
     PhotoDialogComponent,
     InventoryItemCardComponent,

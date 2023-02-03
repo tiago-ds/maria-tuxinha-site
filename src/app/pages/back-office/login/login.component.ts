@@ -7,10 +7,10 @@ import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
 
 @Component({
-  templateUrl: './admin-login.component.html',
-  styleUrls: ['./admin-login.component.scss'],
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.scss'],
 })
-export class AdminLoginComponent implements OnInit {
+export class LoginComponent implements OnInit {
   constructor(
     private socialAuthService: SocialAuthService,
     private authService: AuthService,

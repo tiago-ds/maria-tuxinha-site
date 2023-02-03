@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CreateOrderComponent } from './pages/user/create-order/create-order.component';
-import { HomeComponent } from './pages/user/home/home.component';
-import { AdminLoginComponent } from './pages/backoffice/admin-login/admin-login.component';
+import { CreateOrderComponent } from './pages/front-office/create-order/create-order.component';
+import { HomeComponent } from './pages/front-office/home/home.component';
+import { LoginComponent } from './pages/back-office/login/login.component';
 import { AuthGuard } from './utils/auth.guard';
-import { AdminComponent } from './pages/backoffice/admin/admin.component';
+import { InventoryComponent } from './pages/back-office/inventory/inventory.component';
 
 const routes: Routes = [
   {
@@ -16,10 +16,10 @@ const routes: Routes = [
   { path: 'create-order', component: CreateOrderComponent },
   {
     path: 'admin',
-    component: AdminComponent,
+    component: InventoryComponent,
     canActivate: [AuthGuard],
   },
-  { path: 'admin/login', component: AdminLoginComponent },
+  { path: 'admin/login', component: LoginComponent },
 ];
 
 @NgModule({

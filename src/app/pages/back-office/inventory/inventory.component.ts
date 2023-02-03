@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialogRef } from '@angular/material/dialog';
-import { AddAderecoComponent } from 'src/app/components/adereco-dialog/adereco-dialog.component';
 import { AderecoDialogData } from 'src/app/models/Dialog';
 import { Adereco } from 'src/app/models/Pedido';
 import { AderecoService } from 'src/app/services/adereco.service';
@@ -8,10 +6,10 @@ import { GalleryService } from 'src/app/services/gallery.service';
 import { DialogsService } from '../../../services/dialogs.service';
 
 @Component({
-  templateUrl: './admin.component.html',
-  styleUrls: ['./admin.component.scss'],
+  templateUrl: './inventory.component.html',
+  styleUrls: ['./inventory.component.scss'],
 })
-export class AdminComponent implements OnInit {
+export class InventoryComponent implements OnInit {
   aderecos: any;
   peles: any;
   vestidos: any;
