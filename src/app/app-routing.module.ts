@@ -5,6 +5,7 @@ import { HomeComponent } from './pages/front-office/home/home.component';
 import { LoginComponent } from './pages/back-office/login/login.component';
 import { AuthGuard } from './utils/auth.guard';
 import { InventoryComponent } from './pages/back-office/inventory/inventory.component';
+import { AboutComponent } from './pages/front-office/about/about.component';
 
 const routes: Routes = [
   {
@@ -14,6 +15,7 @@ const routes: Routes = [
   },
   { path: 'home', component: HomeComponent },
   { path: 'create-order', component: CreateOrderComponent },
+  { path: 'about', component: AboutComponent },
   {
     path: 'admin',
     component: InventoryComponent,
