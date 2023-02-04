@@ -9,7 +9,7 @@
     </p>
   </mat-card-content>
   <mat-card-actions class="actions">
-    <button mat-button>Editar</button>
+    <button mat-button (click)="edit()">Editar</button>
     <button mat-button>
       {{ item?.type === "hidden" ? "Mostrar" : "Esconder" }}
     </button>

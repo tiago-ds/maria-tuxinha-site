@@ -21,14 +21,14 @@ export class DialogsService {
     });
   }
 
-  openGalleryDialog() {
-    this.dialog.open(InventoryDialogComponent, {
+  openGalleryDialog(
+    dialodData: InventoryDialogData
+  ): MatDialogRef<InventoryDialogComponent> {
+    return this.dialog.open(InventoryDialogComponent, {
       panelClass: 'photo-dialog',
       minWidth: isMobile() ? '100vw' : '500px',
       minHeight: isMobile() ? '100vh' : '90vh',
-      data: {
-        type: 'photo',
-      },
+      data: dialodData,
     });
   }
 }

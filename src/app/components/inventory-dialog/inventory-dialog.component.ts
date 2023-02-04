@@ -80,6 +80,21 @@ export class InventoryDialogComponent implements OnInit {
         ]),
       });
 
+      if (this.openReason === 'edit') {
+        this.photoForm.controls['title'].setValue(this.dialogData.photo?.title);
+        this.photoForm.controls['title'].updateValueAndValidity();
+
+        this.photoForm.controls['subtitle'].setValue(
+          this.dialogData.photo?.subtitle
+        );
+        this.photoForm.controls['subtitle'].updateValueAndValidity();
+
+        this.photoForm.controls['type'].setValue(this.dialogData.photo?.type);
+        this.photoForm.controls['type'].updateValueAndValidity();
+
+        this.currentLink = this.dialogData?.photo?.pictureUrl ?? '';
+      }
+
       this.photoForm.get('pictureUrl')?.valueChanges.subscribe((value) => {
         this.imageLoaded = false;
         this.currentLink = parseDriveLink(value);

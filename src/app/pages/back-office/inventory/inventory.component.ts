@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { InventoryDialogData } from 'src/app/models/Dialog';
 import { Adereco } from 'src/app/models/Pedido';
+import { Photo } from 'src/app/models/Photo';
 import { AderecoService } from 'src/app/services/adereco.service';
 import { GalleryService } from 'src/app/services/gallery.service';
 import { DialogsService } from '../../../services/dialogs.service';
@@ -81,6 +82,15 @@ export class InventoryComponent implements OnInit {
       openReason: 'add',
       adereco: { type } as Adereco,
       type: 'adereco',
+    } as InventoryDialogData;
+    this.dialogs.openAderecoDialog(dialogData);
+  }
+
+  openGalleryDialog() {
+    const dialogData = {
+      openReason: 'add',
+      photo: { type: 'hidden' } as Photo,
+      type: 'photo',
     } as InventoryDialogData;
     this.dialogs.openAderecoDialog(dialogData);
   }
