@@ -1,8 +1,13 @@
 import { Adereco } from './Pedido';
+import { Photo } from './Photo';
 
 export type OpenReasons = 'add' | 'edit';
 
-export interface AderecoDialogData {
+export type DialogType = 'photo' | 'adereco';
+
+export interface InventoryDialogData {
   openReason: OpenReasons;
   adereco?: Adereco;
+  photo?: Photo;
+  type: DialogType;
 }

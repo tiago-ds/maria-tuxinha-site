@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CreateOrderComponent } from './pages/front-office/create-order/create-order.component';
-import { AddAderecoComponent } from './components/adereco-dialog/adereco-dialog.component';
+import { InventoryDialogComponent } from './components/inventory-dialog/inventory-dialog.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import {
   SocialLoginModule,
@@ -44,7 +44,6 @@ import { HeaderComponent } from './components/header/header.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
-import { PhotoDialogComponent } from './components/photo-dialog/photo-dialog.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { InventoryItemCardComponent } from './components/inventory-item-card/inventory-item-card.component';
 import { GalleryAdminCardComponent } from './components/gallery-admin-card/gallery-admin-card.component';
@@ -54,7 +53,7 @@ import { AboutComponent } from './pages/front-office/about/about.component';
   declarations: [
     AppComponent,
     CreateOrderComponent,
-    AddAderecoComponent,
+    InventoryDialogComponent,
     CheckoutComponent,
     HomeComponent,
     GalleryCardComponent,
@@ -64,7 +63,6 @@ import { AboutComponent } from './pages/front-office/about/about.component';
     LoginComponent,
     InventoryComponent,
     HeaderComponent,
-    PhotoDialogComponent,
     InventoryItemCardComponent,
     GalleryAdminCardComponent,
     AboutComponent,
@@ -128,7 +126,6 @@ import { AboutComponent } from './pages/front-office/about/about.component';
     OrderAssemblerItemComponent,
     OrderAssemblerGroupComponent,
     HeaderComponent,
-    PhotoDialogComponent,
     InventoryItemCardComponent,
   ],
 })

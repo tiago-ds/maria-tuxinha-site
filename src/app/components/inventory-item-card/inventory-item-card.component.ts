@@ -1,6 +1,6 @@
 import { Adereco } from '../../models/Pedido';
 import { DialogsService } from '../../services/dialogs.service';
-import { AderecoDialogData } from '../../models/Dialog';
+import { InventoryDialogData } from '../../models/Dialog';
 import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
@@ -29,7 +29,8 @@ export class InventoryItemCardComponent implements OnInit {
     const dialogData = {
       openReason: 'edit',
       adereco: this.item,
-    } as AderecoDialogData;
+      type: 'adereco',
+    } as InventoryDialogData;
     const response = this.dialogsService.openAderecoDialog(dialogData);
     response.afterClosed().subscribe((result) => {
       if (result.success) {
