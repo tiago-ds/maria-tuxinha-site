@@ -3,29 +3,33 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { OrderService } from 'src/app/services/order.service';
-import { getSimpleBonecaValue, getVestidoValue, getSapatoValue, getExtraAderecoValue } from 'src/app/utils/aderecoUtils';
+import {
+  getSimpleBonecaValue,
+  getVestidoValue,
+  getSapatoValue,
+  getExtraAderecoValue,
+} from 'src/app/utils/aderecoUtils';
 import { Adereco, Cliente, Pedido } from '../../models/Pedido';
 
 @Component({
-  selector: 'txa-checkout',
-  templateUrl: './checkout.component.html',
-  styleUrls: ['./checkout.component.scss'],
+  selector: 'txa-checkout-dialog',
+  templateUrl: './checkout-dialog.component.html',
+  styleUrls: ['./checkout-dialog.component.scss'],
 })
-
-export class CheckoutComponent implements OnInit {
+export class CheckoutDialogComponent implements OnInit {
   // Form controllers
   NAME: string;
   EMAIL: string;
   PHONE_NUMBER: string;
 
   totalValue: number = getSimpleBonecaValue();
-  extras: string = "";
+  extras: string = '';
 
   clienteForm: FormGroup = new FormGroup({});
 
   constructor(
     private orderService: OrderService,
-    public dialogRef: MatDialogRef<CheckoutComponent>,
+    public dialogRef: MatDialogRef<CheckoutDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any[],
     private _snackBar: MatSnackBar
   ) {
@@ -85,9 +89,15 @@ export class CheckoutComponent implements OnInit {
   }
 
   getExtraPrice(aderecos: Adereco[]): void {
-    this.totalValue += ((aderecos.filter((it) => it.type === 'sapato').length) - 1) * getSapatoValue();
-    this.totalValue += ((aderecos.filter((it) => it.type === 'vestido').length) - 1) * getVestidoValue();
-    this.totalValue += ((aderecos.filter((it) => it.type === 'extra').length) - 1) * getExtraAderecoValue();
+    this.totalValue +=
+      (aderecos.filter((it) => it.type === 'sapato').length - 1) *
+      getSapatoValue();
+    this.totalValue +=
+      (aderecos.filter((it) => it.type === 'vestido').length - 1) *
+      getVestidoValue();
+    this.totalValue +=
+      (aderecos.filter((it) => it.type === 'extra').length - 1) *
+      getExtraAderecoValue();
   }
 
   getDateFourteenDaysAhead() {

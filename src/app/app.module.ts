@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CreateOrderComponent } from './pages/front-office/create-order/create-order.component';
 import { InventoryDialogComponent } from './components/inventory-dialog/inventory-dialog.component';
-import { CheckoutComponent } from './components/checkout/checkout.component';
+import { CheckoutDialogComponent } from './components/checkout-dialog/checkout-dialog.component';
 import {
   SocialLoginModule,
   SocialAuthServiceConfig,
@@ -54,7 +54,7 @@ import { AboutComponent } from './pages/front-office/about/about.component';
     AppComponent,
     CreateOrderComponent,
     InventoryDialogComponent,
-    CheckoutComponent,
+    CheckoutDialogComponent,
     HomeComponent,
     GalleryCardComponent,
     GalleryComponent,

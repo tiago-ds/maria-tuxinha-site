@@ -4,7 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { Adereco } from 'src/app/models/Pedido';
 import { AderecoService } from 'src/app/services/adereco.service';
 import { OrderService } from '../../../services/order.service';
-import { CheckoutComponent } from '../../../components/checkout/checkout.component';
+import { CheckoutDialogComponent } from '../../../components/checkout-dialog/checkout-dialog.component';
 import { mockedAderecos } from '../../../utils/aderecoUtils';
 import { isMobile } from 'src/app/utils/screen.utils';
 
@@ -45,7 +45,7 @@ export class CreateOrderComponent implements OnInit {
   openDialog(): void {
     if (!this.validateCreateOrder()) return;
 
-    this.dialog.open(CheckoutComponent, {
+    this.dialog.open(CheckoutDialogComponent, {
       panelClass: 'checkout',
       minWidth: isMobile() ? '100vw' : '500px',
       minHeight: isMobile() ? '100vh' : '90vh',
