@@ -24,7 +24,11 @@
     </mat-form-field>
     <mat-form-field appearance="fill">
       <mat-label>Comentários ou pedidos adicionais</mat-label>
-      <input [(ngModel)]="extras" matInput />
+      <input
+        [(ngModel)]="extras"
+        matInput
+        [ngModelOptions]="{ standalone: true }"
+      />
       <mat-hint
         >Você gostaria de fazer algum comentário extra sobre a sua
         Maria?</mat-hint

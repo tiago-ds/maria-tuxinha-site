@@ -46,7 +46,7 @@ export class CreateOrderComponent implements OnInit {
     if (!this.validateCreateOrder()) return;
 
     this.dialog.open(CheckoutDialogComponent, {
-      panelClass: 'checkout',
+      panelClass: 'checkout-dialog',
       minWidth: isMobile() ? '100vw' : '500px',
       minHeight: isMobile() ? '100vh' : '90vh',
       data: [this.getAderecos(), this.getHairDescription()],
