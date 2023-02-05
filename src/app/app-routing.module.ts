@@ -6,7 +6,7 @@ import { LoginComponent } from './pages/back-office/login/login.component';
 import { AuthGuard } from './utils/auth.guard';
 import { InventoryComponent } from './pages/back-office/inventory/inventory.component';
 import { AboutComponent } from './pages/front-office/about/about.component';
-import { CheckoutOrderComponent } from './pages/front-office/order/checkout/checkout-order/checkout-order.component';
+import { CheckoutOrderComponent } from './pages/front-office/order/checkout/checkout-order.component';
 
 const routes: Routes = [
   {

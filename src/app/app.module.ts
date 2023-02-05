@@ -48,7 +48,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { InventoryItemCardComponent } from './components/inventory-item-card/inventory-item-card.component';
 import { GalleryAdminCardComponent } from './components/gallery-admin-card/gallery-admin-card.component';
 import { AboutComponent } from './pages/front-office/about/about.component';
-import { CheckoutOrderComponent } from './pages/front-office/order/checkout/checkout-order/checkout-order.component';
+import { CheckoutOrderComponent } from './pages/front-office/order/checkout/checkout-order.component';
 
 @NgModule({
   declarations: [
