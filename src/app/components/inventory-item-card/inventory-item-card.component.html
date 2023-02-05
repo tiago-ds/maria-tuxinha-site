@@ -1,4 +1,8 @@
-<mat-card class="inventory-card" [class.available]="!item?.isAvailable">
+<mat-card
+  class="inventory-card"
+  [class.available]="!item?.isAvailable"
+  [class.hidden-card]="!item?.isAvailable"
+>
   <mat-card-header>
     <mat-card-title>{{ item?.name }}</mat-card-title>
   </mat-card-header>

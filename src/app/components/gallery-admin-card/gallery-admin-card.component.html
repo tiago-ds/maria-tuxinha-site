@@ -1,4 +1,7 @@
-<mat-card class="admin-gallery-card" [class.hidden]="item?.type === 'hidden'">
+<mat-card
+  class="admin-gallery-card"
+  [class.hidden-card]="item?.type === 'hidden'"
+>
   <mat-card-header>
     <mat-card-title>{{ item?.title }}</mat-card-title>
   </mat-card-header>

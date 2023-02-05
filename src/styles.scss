@@ -81,6 +81,16 @@ body {
   --color-text-tertiary: #de7850;
   --color-text-quaternary: #5e473e;
   --color-text-quinary: #ab5c3e;
+
+  .hidden-card {
+    opacity: 75%;
+    background: repeating-linear-gradient(
+      45deg,
+      var(--hidden) 0,
+      var(--hidden-alt) 1px,
+      var(--hidden) 0.75em
+    );
+  }
 }
 
 h1,
