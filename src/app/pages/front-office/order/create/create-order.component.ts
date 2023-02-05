@@ -3,9 +3,9 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { Adereco } from 'src/app/models/Pedido';
 import { AderecoService } from 'src/app/services/adereco.service';
-import { OrderService } from '../../../services/order.service';
-import { CheckoutDialogComponent } from '../../../components/checkout-dialog/checkout-dialog.component';
-import { mockedAderecos } from '../../../utils/aderecoUtils';
+import { OrderService } from '../../../../services/order.service';
+import { CheckoutDialogComponent } from '../../../../components/checkout-dialog/checkout-dialog.component';
+import { mockedAderecos } from '../../../../utils/aderecoUtils';
 import { isMobile } from 'src/app/utils/screen.utils';
 
 @Component({

@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CreateOrderComponent } from './pages/front-office/create-order/create-order.component';
+import { CreateOrderComponent } from './pages/front-office/order/create/create-order.component';
 import { InventoryDialogComponent } from './components/inventory-dialog/inventory-dialog.component';
 import { CheckoutDialogComponent } from './components/checkout-dialog/checkout-dialog.component';
 import {
@@ -48,6 +48,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { InventoryItemCardComponent } from './components/inventory-item-card/inventory-item-card.component';
 import { GalleryAdminCardComponent } from './components/gallery-admin-card/gallery-admin-card.component';
 import { AboutComponent } from './pages/front-office/about/about.component';
+import { CheckoutOrderComponent } from './pages/front-office/order/checkout/checkout-order/checkout-order.component';
 
 @NgModule({
   declarations: [
@@ -66,6 +67,7 @@ import { AboutComponent } from './pages/front-office/about/about.component';
     InventoryItemCardComponent,
     GalleryAdminCardComponent,
     AboutComponent,
+    CheckoutOrderComponent,
   ],
   imports: [
     BrowserModule,

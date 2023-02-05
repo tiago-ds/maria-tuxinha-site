@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CreateOrderComponent } from './pages/front-office/create-order/create-order.component';
+import { CreateOrderComponent } from './pages/front-office/order/create/create-order.component';
 import { HomeComponent } from './pages/front-office/home/home.component';
 import { LoginComponent } from './pages/back-office/login/login.component';
 import { AuthGuard } from './utils/auth.guard';
 import { InventoryComponent } from './pages/back-office/inventory/inventory.component';
 import { AboutComponent } from './pages/front-office/about/about.component';
+import { CheckoutOrderComponent } from './pages/front-office/order/checkout/checkout-order/checkout-order.component';
 
 const routes: Routes = [
   {
@@ -14,7 +15,8 @@ const routes: Routes = [
     pathMatch: 'full',
   },
   { path: 'home', component: HomeComponent },
-  { path: 'create-order', component: CreateOrderComponent },
+  { path: 'order/create', component: CreateOrderComponent },
+  { path: 'order/checkout', component: CheckoutOrderComponent },
   { path: 'about', component: AboutComponent },
   {
     path: 'admin',
