@@ -1,0 +1,31 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+
+  form .mat-form-field {
+    padding-top: 24px;
+  }
+}
+
+.actions {
+  display: flex;
+  flex-grow: 1;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 24px 12px;
+}
+
+.total {
+  padding: 12px 0;
+}
+
+.checkout-form {
+  display: flex;
+  flex-direction: column;
+}
+
+::ng-deep .photo-dialog .mat-dialog-container {
+  display: flex;
+  flex: 1 !important;
+}

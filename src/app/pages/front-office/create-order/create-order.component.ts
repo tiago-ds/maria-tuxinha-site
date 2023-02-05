@@ -6,6 +6,7 @@ import { AderecoService } from 'src/app/services/adereco.service';
 import { OrderService } from '../../../services/order.service';
 import { CheckoutComponent } from '../../../components/checkout/checkout.component';
 import { mockedAderecos } from '../../../utils/aderecoUtils';
+import { isMobile } from 'src/app/utils/screen.utils';
 
 @Component({
   selector: 'txa-create-order',
@@ -45,7 +46,9 @@ export class CreateOrderComponent implements OnInit {
     if (!this.validateCreateOrder()) return;
 
     this.dialog.open(CheckoutComponent, {
-      width: '300px',
+      panelClass: 'checkout',
+      minWidth: isMobile() ? '100vw' : '500px',
+      minHeight: isMobile() ? '100vh' : '90vh',
       data: [this.getAderecos(), this.getHairDescription()],
     });
   }
