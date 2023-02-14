@@ -83,7 +83,21 @@ export class InventoryComponent implements OnInit {
       adereco: { type } as Adereco,
       type: 'adereco',
     } as InventoryDialogData;
-    this.dialogs.openAderecoDialog(dialogData);
+    this.dialogs
+      .openAderecoDialog(dialogData)
+      .afterClosed()
+      .subscribe((result) => {
+        if (result.success) {
+          this.photos.push(result.photo);
+          this.dialogs.openSuccessDialog({
+            message: 'Adereço adicionado com sucesso!',
+          });
+        } else {
+          this.dialogs.openSuccessDialog({
+            message: 'Erro ao adicionar adereço!',
+          });
+        }
+      });
   }
 
   openGalleryDialog() {
@@ -92,6 +106,20 @@ export class InventoryComponent implements OnInit {
       photo: { type: 'hidden' } as Photo,
       type: 'photo',
     } as InventoryDialogData;
-    this.dialogs.openAderecoDialog(dialogData);
+    this.dialogs
+      .openAderecoDialog(dialogData)
+      .afterClosed()
+      .subscribe((result) => {
+        if (result.success) {
+          this.photos.push(result.photo);
+          this.dialogs.openSuccessDialog({
+            message: 'Foto adicionada com sucesso!',
+          });
+        } else {
+          this.dialogs.openSuccessDialog({
+            message: 'Erro ao adicionar foto!',
+          });
+        }
+      });
   }
 }

@@ -1,12 +1,21 @@
 import { GalleryService } from '../../services/gallery.service';
 import { Component, Inject, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import {
+  FormGroup,
+  FormControl,
+  Validators,
+  ValidatorFn,
+  AbstractControl,
+  ValidationErrors,
+} from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { InventoryDialogData, OpenReasons } from 'src/app/models/Dialog';
 import { Adereco } from 'src/app/models/Pedido';
 import { Photo } from 'src/app/models/Photo';
 import { AderecoService } from 'src/app/services/adereco.service';
 import { parseDriveLink } from '../../utils/aderecoUtils';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { map } from 'rxjs';
 
 @Component({
   selector: 'inventory-dialog',
@@ -30,7 +39,8 @@ export class InventoryDialogComponent implements OnInit {
     private aderecoService: AderecoService,
     private galleryService: GalleryService,
     @Inject(MAT_DIALOG_DATA) public dialogData: InventoryDialogData,
-    public dialogRef: MatDialogRef<InventoryDialogComponent>
+    public dialogRef: MatDialogRef<InventoryDialogComponent>,
+    private http: HttpClient
   ) {
     this.openReason = dialogData.openReason;
     this.TYPE = 'type';
@@ -99,10 +109,6 @@ export class InventoryDialogComponent implements OnInit {
         this.imageLoaded = false;
         this.currentLink = parseDriveLink(value);
       });
-
-      this.photoForm.valueChanges.subscribe((value) => {
-        console.log(this.photoForm);
-      });
     }
   }
 
@@ -139,7 +145,14 @@ export class InventoryDialogComponent implements OnInit {
   submitPhoto() {
     const photo: Photo = this.photoForm.value;
     photo.pictureUrl = parseDriveLink(photo.pictureUrl);
-    this.galleryService.addPhoto(photo);
+    this.galleryService
+      .addPhoto(photo)
+      .then(() => {
+        this.dialogRef.close({ success: true, photo });
+      })
+      .catch(() => {
+        this.dialogRef.close({ success: false });
+      });
   }
 
   submit() {

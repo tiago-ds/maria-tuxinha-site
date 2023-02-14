@@ -3,6 +3,7 @@ import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { InventoryDialogComponent } from '../components/inventory-dialog/inventory-dialog.component';
 import { InventoryDialogData } from '../models/Dialog';
 import { isMobile } from '../utils/screen.utils';
+import { MessageDialogComponent } from '../components/message-dialog/message-dialog.component';
 
 @Injectable({
   providedIn: 'root',
@@ -28,6 +29,13 @@ export class DialogsService {
       panelClass: 'photo-dialog',
       minWidth: isMobile() ? '100vw' : '500px',
       minHeight: isMobile() ? '100vh' : '90vh',
+      data: dialodData,
+    });
+  }
+
+  openSuccessDialog(dialodData: any): MatDialogRef<MessageDialogComponent> {
+    return this.dialog.open(MessageDialogComponent, {
+      panelClass: 'photo-dialog',
       data: dialodData,
     });
   }

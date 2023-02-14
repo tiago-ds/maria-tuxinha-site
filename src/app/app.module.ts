@@ -49,6 +49,7 @@ import { InventoryItemCardComponent } from './components/inventory-item-card/inv
 import { GalleryAdminCardComponent } from './components/gallery-admin-card/gallery-admin-card.component';
 import { AboutComponent } from './pages/front-office/about/about.component';
 import { CheckoutOrderComponent } from './pages/front-office/order/checkout/checkout-order.component';
+import { MessageDialogComponent } from './components/message-dialog/message-dialog.component';
 
 @NgModule({
   declarations: [
@@ -68,6 +69,7 @@ import { CheckoutOrderComponent } from './pages/front-office/order/checkout/chec
     GalleryAdminCardComponent,
     AboutComponent,
     CheckoutOrderComponent,
+    MessageDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -129,6 +131,7 @@ import { CheckoutOrderComponent } from './pages/front-office/order/checkout/chec
     OrderAssemblerGroupComponent,
     HeaderComponent,
     InventoryItemCardComponent,
+    MessageDialogComponent,
   ],
 })
 export class AppModule {}
