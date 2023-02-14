@@ -8,6 +8,7 @@ import {
 } from '@angular/core';
 import { InventoryDialogData } from 'src/app/models/Dialog';
 import { DialogsService } from 'src/app/services/dialogs.service';
+import { getThumbnailPictureUrl } from 'src/app/utils/aderecoUtils';
 
 @Component({
   selector: 'txa-gallery-admin-card',
@@ -38,5 +39,12 @@ export class GalleryAdminCardComponent implements OnInit {
         this.changeDetector.markForCheck();
       }
     });
+  }
+
+  get pictureUrl(): string {
+    if (this.item) {
+      return getThumbnailPictureUrl(this.item.pictureId, 400);
+    }
+    return '';
   }
 }

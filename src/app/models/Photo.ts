@@ -5,5 +5,5 @@ export type Photo = {
   subtitle: string;
   uuid: string;
   type: photoType;
-  pictureUrl: string;
+  pictureId: string;
 };

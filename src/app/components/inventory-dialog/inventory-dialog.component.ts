@@ -13,7 +13,7 @@ import { InventoryDialogData, OpenReasons } from 'src/app/models/Dialog';
 import { Adereco } from 'src/app/models/Pedido';
 import { Photo } from 'src/app/models/Photo';
 import { AderecoService } from 'src/app/services/adereco.service';
-import { parseDriveLink } from '../../utils/aderecoUtils';
+import { getThumbnailPictureUrl, parseDriveId } from '../../utils/aderecoUtils';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map } from 'rxjs';
 
@@ -28,7 +28,7 @@ export class InventoryDialogComponent implements OnInit {
   NAME: string;
   LINK: string;
   openReason: OpenReasons;
-  currentLink = '';
+  currentId = '';
   imageLoaded = false;
   photoTypes = ['gallery', 'carousel', 'hidden'];
 
@@ -68,7 +68,7 @@ export class InventoryDialogComponent implements OnInit {
           this.dialogData?.adereco?.name
         );
         this.aderecoForm.controls[this.NAME].updateValueAndValidity();
-        this.currentLink = this.dialogData?.adereco?.pictureUrl ?? '';
+        this.currentId = this.dialogData?.adereco?.pictureId ?? '';
       }
       this.aderecoForm.controls[this.TYPE].setValue(
         this.dialogData?.adereco?.type
@@ -76,7 +76,7 @@ export class InventoryDialogComponent implements OnInit {
       this.aderecoForm.controls[this.TYPE].updateValueAndValidity();
 
       this.aderecoForm.get('pictureUrl')?.valueChanges.subscribe((value) => {
-        this.currentLink = parseDriveLink(value);
+        this.currentId = parseDriveId(value);
         this.imageLoaded = false;
       });
     } else if (this.dialogData.type === 'photo') {
@@ -102,12 +102,12 @@ export class InventoryDialogComponent implements OnInit {
         this.photoForm.controls['type'].setValue(this.dialogData.photo?.type);
         this.photoForm.controls['type'].updateValueAndValidity();
 
-        this.currentLink = this.dialogData?.photo?.pictureUrl ?? '';
+        this.currentId = this.dialogData?.photo?.pictureId ?? '';
       }
 
       this.photoForm.get('pictureUrl')?.valueChanges.subscribe((value) => {
         this.imageLoaded = false;
-        this.currentLink = parseDriveLink(value);
+        this.currentId = parseDriveId(value);
       });
     }
   }
@@ -117,7 +117,7 @@ export class InventoryDialogComponent implements OnInit {
       const newAdereco: Adereco = this.dialogData.adereco as Adereco;
       newAdereco.name = this.aderecoForm.value.name;
       newAdereco.lastModified = new Date();
-      newAdereco.pictureUrl = this.currentLink;
+      newAdereco.pictureId = this.currentId;
       this.aderecoService
         .editAdereco(newAdereco)
         .then(() => {
@@ -127,10 +127,10 @@ export class InventoryDialogComponent implements OnInit {
           this.dialogRef.close({ success: false });
         });
     } else {
-      const newAdereco: Adereco = this.aderecoForm.value as Adereco;
+      const newAdereco = this.aderecoForm.value;
       newAdereco.isAvailable = true;
       newAdereco.lastModified = new Date();
-      newAdereco.pictureUrl = parseDriveLink(newAdereco.pictureUrl);
+      newAdereco.pictureId = parseDriveId(newAdereco.pictureUrl);
       this.aderecoService
         .createAdereco(newAdereco)
         .then(() => {
@@ -143,8 +143,8 @@ export class InventoryDialogComponent implements OnInit {
   }
 
   submitPhoto() {
-    const photo: Photo = this.photoForm.value;
-    photo.pictureUrl = parseDriveLink(photo.pictureUrl);
+    const photo = this.photoForm.value;
+    photo.pictureId = parseDriveId(photo.pictureUrl);
     this.galleryService
       .addPhoto(photo)
       .then(() => {
@@ -170,5 +170,12 @@ export class InventoryDialogComponent implements OnInit {
 
   onImageError(event: ErrorEvent) {
     this.imageLoaded = false;
+  }
+
+  get previewUrl(): string {
+    if (this.currentId) {
+      return getThumbnailPictureUrl(this.currentId, 400);
+    }
+    return '';
   }
 }

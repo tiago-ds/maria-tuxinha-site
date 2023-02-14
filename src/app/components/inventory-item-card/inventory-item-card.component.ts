@@ -8,6 +8,7 @@ import {
   Input,
   OnInit,
 } from '@angular/core';
+import { getThumbnailPictureUrl } from 'src/app/utils/aderecoUtils';
 
 @Component({
   selector: 'txa-inventory-item-card',
@@ -38,5 +39,12 @@ export class InventoryItemCardComponent implements OnInit {
         this.changeDetector.markForCheck();
       }
     });
+  }
+
+  get pictureUrl(): string {
+    if (this.item) {
+      return getThumbnailPictureUrl(this.item.pictureId, 400);
+    }
+    return '';
   }
 }

@@ -1,16 +1,23 @@
 import { Adereco } from '../models/Pedido';
 
-export function parseDriveLink(link: string): string {
+export function parseDriveId(link: string): string {
   const REGEX: RegExp = new RegExp(
     '^https://drive.google.com/file/d/([^/]+)/.*$'
   );
   const baseDriveUrl: string = 'https://drive.google.com/uc?export=view&id=';
 
-  if (link.match(REGEX)?.[1]) {
-    return `${baseDriveUrl}${link.match(REGEX)?.[1]}`;
-  }
+  return link.match(REGEX)?.[1] ?? '';
+}
 
-  return '';
+export function getFullSizePictureUrl(pictureId: string): string {
+  return `https://drive.google.com/uc?export=view&id=${pictureId}`;
+}
+
+export function getThumbnailPictureUrl(
+  pictureId: string,
+  size: number
+): string {
+  return `https://drive.google.com/thumbnail?id=${pictureId}&sz=w${size}-h${size}`;
 }
 
 export function getSimpleBonecaValue(): number {
@@ -31,7 +38,7 @@ export const mockedAderecos: Adereco[] = [
   {
     type: 'cabelo',
     uuid: '3ad27277-3f53-467a-8b31-15e398f61e85',
-    pictureUrl:
+    pictureId:
       'https://drive.google.com/uc?export=view&id=1cb5vGI0AU6eclXD8QmI9TpbsFJoJDBhs',
     name: 'Cabelo Loiro',
     isAvailable: true,
@@ -42,13 +49,13 @@ export const mockedAderecos: Adereco[] = [
     type: 'pele',
     name: 'Pele clara',
     uuid: '57cf5f7b-e05a-403c-a7b7-8d5410e73194',
-    pictureUrl:
+    pictureId:
       'https://drive.google.com/uc?export=view&id=1QLw_XtzRiQ7rEpgEf1DMfta_QpivWnYO',
     isAvailable: true,
   } as Adereco,
   {
     uuid: 'b8446230-f529-42ca-b2d4-d456c43689fe',
-    pictureUrl:
+    pictureId:
       'https://drive.google.com/uc?export=view&id=11TFqPIDZFRvpSoNgEpyDM_WtPJfrOKF7',
     name: 'Vestido de bolinhas',
     type: 'vestido',
@@ -58,7 +65,7 @@ export const mockedAderecos: Adereco[] = [
   {
     lastModified: '2022-09-03T03:07:52.986Z' as unknown as Date,
     isAvailable: true,
-    pictureUrl:
+    pictureId:
       'https://drive.google.com/uc?export=view&id=1PMVtpuO7W2UHe3H9_pqWQbxA6hhqC7LQ',
     type: 'sapato',
     name: 'Sapato Social',
