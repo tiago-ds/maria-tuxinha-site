@@ -18,6 +18,7 @@ export class GalleryCardComponent implements OnInit {
   @Input() imageSrc = '';
 
   isOverlayOpened = false;
+  isImageLoaded = false;
   positionStrategy: any = [
     {
       originX: 'start',
@@ -38,5 +39,9 @@ export class GalleryCardComponent implements OnInit {
 
   toggleOverlay(): void {
     this.isOverlayOpened = !this.isOverlayOpened;
+  }
+
+  finishedLoading(): void {
+    this.isImageLoaded = true
   }
 }

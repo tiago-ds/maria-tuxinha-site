@@ -1,15 +1,26 @@
 import { Component, OnInit } from '@angular/core';
+import { GalleryService } from 'src/app/services/gallery.service';
+import {getThumbnailPictureUrl} from "../../../utils/aderecoUtils";
 
 @Component({
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
 })
-export class HomeComponent {
-  list = [...Array(10).keys()].map((i) => ({
-    title: 'Boneca',
-    category: 'Bonecas',
-    imageSrc: 'https://i.imgur.com/uJx7jmd.jpg',
-  }));
+export class HomeComponent implements OnInit {
+  list: Array<any> = [];
+  allItemsLoaded = false;
+
+  constructor(private galleryService: GalleryService) {}
+
+  async ngOnInit() {
+    this.list = (await this.galleryService.getAllPhotos()).map(item => {
+      const itemWithPicture: any = {...item}
+      itemWithPicture.imageSrc = getThumbnailPictureUrl(item.pictureId, 400)
+
+      return itemWithPicture
+    });
+    this.allItemsLoaded = true
+  }
 
   carouselList = [
     {
