@@ -2,19 +2,12 @@
   class="admin-gallery-card"
   [class.hidden-card]="item?.type === 'hidden'"
 >
-  <mat-card-header>
-    <mat-card-title>{{ item?.title }}</mat-card-title>
-  </mat-card-header>
   <img [attr.referrerpolicy]="'no-referrer'" [src]="pictureUrl" />
+  <button class="edit-button" mat-mini-fab color="primary" (click)="edit()">
+    <mat-icon>edit</mat-icon>
+  </button>
+  <mat-card-title class="title">{{ item?.title }}</mat-card-title>
   <mat-card-content class="content">
-    <p>
-      {{ item?.subtitle }}
-    </p>
+    {{ item?.subtitle }}
   </mat-card-content>
-  <mat-card-actions class="actions">
-    <button mat-button (click)="edit()">Editar</button>
-    <button mat-button>
-      {{ item?.type === "hidden" ? "Mostrar" : "Esconder" }}
-    </button>
-  </mat-card-actions>
 </mat-card>

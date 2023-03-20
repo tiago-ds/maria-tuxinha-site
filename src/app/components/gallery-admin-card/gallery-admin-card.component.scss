@@ -1,24 +1,49 @@
+::ng-deep mat-card {
+  padding: 0;
+}
+
 .admin-gallery-card {
-  width: 200px;
   margin: 8px 0;
   border-radius: 8px;
+  padding: 0;
+  position: relative;
+  height: 340px;
+  width: 240px;
 
   --hidden: #ffffff;
   --hidden-alt: #f3f3f3;
 
   img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
+    width: 240px;
+    height: 240px;
     border-radius: 8px;
+    object-fit: cover;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
   }
 
+  &:hover {
+    .edit-button {
+      opacity: 1;
+    }
+  }
+
+  .edit-button {
+    position: absolute;
+    z-index: 100;
+    top: 16px;
+    right: 16px;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+  }
+
+  .title,
   .content {
-    height: 40px;
+    padding: 0px 16px;
   }
 
-  .actions {
-    display: flex;
-    justify-content: space-between;
+  .title {
+    margin-top: 8px;
+    margin-bottom: 8px;
   }
 }

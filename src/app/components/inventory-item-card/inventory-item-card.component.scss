@@ -1,8 +1,9 @@
 .inventory-card {
-  width: 200px;
+  width: 240px;
   margin: 8px 0;
   border-radius: 8px;
-
+  padding: 0;
+  position: relative;
   --available: #ffffff;
   --available-alt: #f3f3f3;
 
@@ -16,15 +17,47 @@
     );
   }
 
+  .inventory-card-title {
+    font-size: 20px;
+  }
+
+  .inventory-card-title {
+    padding: 8px 16px;
+    margin: 0;
+  }
+
   img {
-    width: 200px;
+    width: 240px;
     height: 200px;
     object-fit: cover;
     border-radius: 8px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
   }
 
   .actions {
     display: flex;
     justify-content: space-between;
+  }
+
+  &:hover {
+    button {
+      opacity: 1;
+    }
+  }
+
+  button {
+    position: absolute;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    right: 16px;
+
+    &.edit-button {
+      top: 16px;
+    }
+
+    &.visibility-button {
+      top: 72px;
+    }
   }
 }

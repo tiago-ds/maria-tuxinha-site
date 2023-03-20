@@ -1,16 +1,28 @@
 <mat-card
   class="inventory-card"
-  [class.available]="!item?.isAvailable"
-  [class.hidden-card]="!item?.isAvailable"
+  [class.available]="!item.isAvailable"
+  [class.hidden-card]="!item.isAvailable"
 >
-  <mat-card-header>
-    <mat-card-title>{{ item?.name }}</mat-card-title>
-  </mat-card-header>
-  <img mat-card-sm-image [src]="pictureUrl" />
+  <img
+    mat-card-sm-image
+    [attr.referrerpolicy]="'no-referrer'"
+    [src]="pictureUrl"
+  />
+  <mat-card-title class="inventory-card-title">{{ item.name }}</mat-card-title>
+
   <mat-card-actions class="actions">
-    <button (click)="edit()" mat-button>Editar</button>
-    <button mat-button>
-      {{ item?.isAvailable ? "Esconder" : "Mostrar" }}
+    <button color="primary" class="edit-button" (click)="edit()" mat-mini-fab>
+      <mat-icon>edit</mat-icon>
+    </button>
+    <button
+      color="primary"
+      (click)="item.isAvailable = !item.isAvailable"
+      class="visibility-button"
+      mat-mini-fab
+    >
+      <mat-icon>{{
+        item.isAvailable ? "visibility" : "visibility_off"
+      }}</mat-icon>
     </button>
   </mat-card-actions>
 </mat-card>

@@ -17,7 +17,7 @@ import { getThumbnailPictureUrl } from 'src/app/utils/aderecoUtils';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class InventoryItemCardComponent implements OnInit {
-  @Input() item: Adereco | undefined;
+  @Input() item: Adereco = {} as Adereco;
 
   constructor(
     private dialogsService: DialogsService,
