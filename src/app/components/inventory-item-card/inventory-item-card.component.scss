@@ -49,8 +49,12 @@
   button {
     position: absolute;
     opacity: 0;
-    transition: opacity 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
     right: 16px;
+
+    &:hover {
+      scale: 1.1;
+    }
 
     &.edit-button {
       top: 16px;
