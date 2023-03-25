@@ -1,9 +1,12 @@
 {
   "name": "maria-tuxinha-frontend",
   "version": "0.0.0",
+  "engines": {
+    "node": "^16"
+  },
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --ssl",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"

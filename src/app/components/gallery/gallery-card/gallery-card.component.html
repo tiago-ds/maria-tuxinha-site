@@ -1,11 +1,17 @@
-<mat-card class="gallery-card">
+<mat-card class="gallery-card"
+  [style.visibility]="isImageLoaded ? 'visible' : 'hidden'"
+  [style.width]="isImageLoaded ? 'auto' : '0'"
+  [style.height]="isImageLoaded ? 'auto' : '0'"
+>
   <img
+    (load)="finishedLoading()"
     mat-card-image
     (click)="toggleOverlay()"
     cdkOverlayOrigin
     #trigger="cdkOverlayOrigin"
     src="{{ imageSrc }}"
   />
+<!--  <skeleton />-->
   <h3 class="expanse">Clique para expandir</h3>
   <mat-card-header>
     <div class="card-text">
