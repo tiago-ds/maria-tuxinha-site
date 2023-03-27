@@ -1,10 +1,16 @@
-<div>
+<div></div>
+
+<mat-card class="gallery-card">
   <ngx-skeleton-loader
+    mat-card-image
     *ngIf="!isImageLoaded"
     [theme]="{
-      height: '200px',
+      height: '250px',
       padding: '0',
-      margin: '0'
+      margin: '0',
+      'border-radius': '8px',
+      'border-bottom-left-radius': '0',
+      'border-bottom-right-radius': '0'
     }"
   ></ngx-skeleton-loader>
   <ngx-skeleton-loader
@@ -12,13 +18,12 @@
     [theme]="{
       padding: '0',
       margin: '0',
-      height: '40px'
+      height: '40px',
+      'border-radius': '0px'
     }"
   ></ngx-skeleton-loader>
-</div>
-
-<mat-card class="gallery-card" *ngIf="isImageLoaded">
   <img
+    *ngIf="isImageLoaded"
     #trigger="cdkOverlayOrigin"
     cdkOverlayOrigin
     mat-card-image
@@ -26,10 +31,8 @@
     [attr.src]="imageHelper.src"
     (click)="toggleOverlay()"
   />
-  <!--  <skeleton />-->
-  <h3 class="expanse">Clique para expandir</h3>
 
-  <mat-card-header>
+  <mat-card-header *ngIf="isImageLoaded">
     <div class="card-text">
       <mat-card-subtitle>{{ category }}</mat-card-subtitle>
     </div>
