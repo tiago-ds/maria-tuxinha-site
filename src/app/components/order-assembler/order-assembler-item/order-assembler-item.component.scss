@@ -7,9 +7,7 @@
 }
 
 ::ng-deep.mat-radio-label-content {
-
-
-  .mat-icon{
+  .mat-icon {
     position: absolute;
     top: 15px;
     left: 70px;
@@ -20,10 +18,10 @@
   position: relative;
 }
 
-
 img {
   border-radius: 50%;
+  object-fit: cover;
   width: 100px;
   height: 100px;
-  cursor:pointer;
+  cursor: pointer;
 }
