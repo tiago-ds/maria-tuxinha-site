@@ -17,7 +17,7 @@ mat-card-header {
   img {
     object-fit: cover;
     object-position: center top;
-    max-height: 250px;
+    height: 250px;
     cursor: pointer;
   }
 }
@@ -69,12 +69,13 @@ img.overlayImg {
   transition: opacity 0.5s;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 599px) {
   .gallery-card {
-    width: 250px;
+    max-width: 160px;
+    height: 250px;
 
     img {
-      max-height: 200px;
+      height: 175px;
     }
   }
 

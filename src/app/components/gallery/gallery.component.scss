@@ -17,15 +17,14 @@
 
 @media screen and (max-width: 1200px) {
   .gallery {
-    padding: 24px 6em;
+    margin-left: -1em;
+    padding: 24px 1em;
   }
 }
 
 @media screen and (max-width: 768px) {
-  .gallery {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 24px 1em;
+  .gallery-items {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    padding-top: 24px;
   }
 }
