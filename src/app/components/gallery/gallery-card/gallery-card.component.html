@@ -1,25 +1,37 @@
-<mat-card class="gallery-card"
-  [style.visibility]="isImageLoaded ? 'visible' : 'hidden'"
-  [style.width]="isImageLoaded ? 'auto' : '0'"
-  [style.height]="isImageLoaded ? 'auto' : '0'"
->
+<div>
+  <ngx-skeleton-loader
+    *ngIf="!isImageLoaded"
+    [theme]="{
+      height: '200px',
+      padding: '0',
+      margin: '0'
+    }"
+  ></ngx-skeleton-loader>
+  <ngx-skeleton-loader
+    *ngIf="!isImageLoaded"
+    [theme]="{
+      padding: '0',
+      margin: '0',
+      height: '40px'
+    }"
+  ></ngx-skeleton-loader>
+</div>
+
+<mat-card class="gallery-card" *ngIf="isImageLoaded">
   <img
-    (load)="finishedLoading()"
-    mat-card-image
-    (click)="toggleOverlay()"
-    cdkOverlayOrigin
     #trigger="cdkOverlayOrigin"
-    src="{{ imageSrc }}"
+    cdkOverlayOrigin
+    mat-card-image
+    [attr.referrerpolicy]="'no-referrer'"
+    [attr.src]="imageHelper.src"
+    (click)="toggleOverlay()"
   />
-<!--  <skeleton />-->
+  <!--  <skeleton />-->
   <h3 class="expanse">Clique para expandir</h3>
+
   <mat-card-header>
     <div class="card-text">
-      <mat-card-title>{{ title }}</mat-card-title>
       <mat-card-subtitle>{{ category }}</mat-card-subtitle>
-    </div>
-    <div class="card-icon">
-      <mat-icon>share</mat-icon>
     </div>
   </mat-card-header>
 </mat-card>
@@ -31,5 +43,9 @@
   [cdkConnectedOverlayPanelClass]="['overlay-panel']"
   (backdropClick)="toggleOverlay()"
 >
-  <img class="overlayImg" src="{{ imageSrc }}" />
+  <img
+    class="overlayImg"
+    [attr.referrerpolicy]="'no-referrer'"
+    src="{{ imageSrc.replace('400', '800').replace('400', '800') }}"
+  />
 </ng-template>

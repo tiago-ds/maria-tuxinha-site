@@ -16,7 +16,8 @@ mat-card-header {
 
   img {
     object-fit: cover;
-    max-height: 160px;
+    object-position: center top;
+    max-height: 250px;
     cursor: pointer;
   }
 }

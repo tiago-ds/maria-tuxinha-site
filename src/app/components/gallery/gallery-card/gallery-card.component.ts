@@ -1,9 +1,12 @@
 import { ConnectionPositionPair } from '@angular/cdk/overlay';
 import {
+  AfterViewInit,
   ChangeDetectionStrategy,
+  ChangeDetectorRef,
   Component,
   Input,
   OnInit,
+  ViewChild,
 } from '@angular/core';
 
 @Component({
@@ -16,9 +19,11 @@ export class GalleryCardComponent implements OnInit {
   @Input() title = '';
   @Input() category = '';
   @Input() imageSrc = '';
+  @ViewChild('trigger') image: HTMLImageElement = {} as HTMLImageElement;
 
   isOverlayOpened = false;
   isImageLoaded = false;
+  imageHelper: HTMLImageElement = {} as HTMLImageElement;
   positionStrategy: any = [
     {
       originX: 'start',
@@ -33,15 +38,19 @@ export class GalleryCardComponent implements OnInit {
       overlayY: 'bottom',
     },
   ];
-  constructor() {}
+  constructor(private changeDetector: ChangeDetectorRef) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.imageHelper = new Image();
+    this.imageHelper.referrerPolicy = 'no-referrer';
+    this.imageHelper.onload = () => {
+      this.isImageLoaded = true;
+      this.changeDetector.detectChanges();
+    };
+    this.imageHelper.src = this.imageSrc;
+  }
 
   toggleOverlay(): void {
     this.isOverlayOpened = !this.isOverlayOpened;
-  }
-
-  finishedLoading(): void {
-    this.isImageLoaded = true
   }
 }

@@ -50,6 +50,7 @@ import { GalleryAdminCardComponent } from './components/gallery-admin-card/galle
 import { AboutComponent } from './pages/front-office/about/about.component';
 import { CheckoutOrderComponent } from './pages/front-office/order/checkout/checkout-order.component';
 import { MessageDialogComponent } from './components/message-dialog/message-dialog.component';
+import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 
 @NgModule({
   declarations: [
@@ -93,6 +94,7 @@ import { MessageDialogComponent } from './components/message-dialog/message-dial
     MatSidenavModule,
     MatTabsModule,
     MatIconModule,
+    NgxSkeletonLoaderModule,
     NgxMaskModule.forRoot(),
     OverlayModule,
     SocialLoginModule,
