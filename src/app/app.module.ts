@@ -46,11 +46,13 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { InventoryItemCardComponent } from './components/inventory-item-card/inventory-item-card.component';
-import { GalleryAdminCardComponent } from './components/gallery-admin-card/gallery-admin-card.component';
+import { GalleryAdminCardComponent } from './components/gallery/gallery-admin-card/gallery-admin-card.component';
 import { AboutComponent } from './pages/front-office/about/about.component';
 import { CheckoutOrderComponent } from './pages/front-office/order/checkout/checkout-order.component';
 import { MessageDialogComponent } from './components/message-dialog/message-dialog.component';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
+import { GalleryModule } from './components/gallery/gallery.module';
+import { SwiperModule } from 'swiper/angular';
 
 @NgModule({
   declarations: [
@@ -59,15 +61,12 @@ import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
     InventoryDialogComponent,
     CheckoutDialogComponent,
     HomeComponent,
-    GalleryCardComponent,
-    GalleryComponent,
     OrderAssemblerItemComponent,
     OrderAssemblerGroupComponent,
     LoginComponent,
     InventoryComponent,
     HeaderComponent,
     InventoryItemCardComponent,
-    GalleryAdminCardComponent,
     AboutComponent,
     CheckoutOrderComponent,
     MessageDialogComponent,
@@ -94,10 +93,9 @@ import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
     MatSidenavModule,
     MatTabsModule,
     MatIconModule,
-    NgxSkeletonLoaderModule,
-    NgxMaskModule.forRoot(),
     OverlayModule,
     SocialLoginModule,
+    SwiperModule,
     CarouselModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,
@@ -105,6 +103,7 @@ import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
       // or after 30 seconds (whichever comes first).
       registrationStrategy: 'registerWhenStable:30000',
     }),
+    GalleryModule,
   ],
   providers: [
     {
@@ -127,8 +126,6 @@ import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
   ],
   bootstrap: [AppComponent],
   exports: [
-    GalleryCardComponent,
-    GalleryComponent,
     OrderAssemblerItemComponent,
     OrderAssemblerGroupComponent,
     HeaderComponent,
