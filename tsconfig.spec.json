@@ -1,0 +1,17 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./out-tsc/spec",
+    "target": "es6",
+    "types": ["jest", "node"],
+    "emitDecoratorMetadata": true,
+    "esModuleInterop": true,
+    "allowJs": true,
+    "lib": ["es6", "dom"],
+    "paths": {
+      "src/*": ["./src/*"]
+    }
+  },
+  "files": ["src/polyfills.ts"],
+  "include": ["src/**/*.spec.ts"]
+}
