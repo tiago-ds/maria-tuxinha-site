@@ -1,7 +1,10 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { LoginComponent } from './login.component';
-import { SocialAuthService } from '@abacritt/angularx-social-login';
+import {
+  SocialAuthService,
+  SocialLoginModule,
+} from '@abacritt/angularx-social-login';
 import { MockService } from 'ng-mocks';
 import { AuthService } from 'src/app/services/auth.service';
 import { Subject } from 'rxjs';
@@ -31,7 +34,6 @@ describe('AdminLoginComponent', () => {
 
     fixture = TestBed.createComponent(LoginComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
   });
 
   it('should create', () => {

@@ -1,7 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 
 import { DialogsService } from './dialogs.service';
-import { InventoryDialogComponent } from '../components/inventory-dialog/inventory-dialog.component';
+import { InventoryDialogComponent } from '../components/inventory/inventory-dialog/inventory-dialog.component';
 import { MockComponent, MockService } from 'ng-mocks';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';

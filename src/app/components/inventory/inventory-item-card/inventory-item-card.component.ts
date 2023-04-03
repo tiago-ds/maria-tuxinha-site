@@ -1,6 +1,6 @@
-import { Adereco } from '../../models/Pedido';
-import { DialogsService } from '../../services/dialogs.service';
-import { InventoryDialogData } from '../../models/Dialog';
+import { Adereco } from '../../../models/Pedido';
+import { DialogsService } from '../../../services/dialogs.service';
+import { InventoryDialogData } from '../../../models/Dialog';
 import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,

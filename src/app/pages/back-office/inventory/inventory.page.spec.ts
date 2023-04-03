@@ -1,18 +1,28 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { InventoryComponent } from './inventory.component';
+import { InventoryPage } from './inventory.page';
 import { AderecoService } from 'src/app/services/adereco.service';
 import { MockService } from 'ng-mocks';
 import { GalleryService } from 'src/app/services/gallery.service';
 import { DialogsService } from 'src/app/services/dialogs.service';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatIconModule } from '@angular/material/icon';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserModule } from '@angular/platform-browser';
 
-describe('AdminComponent', () => {
-  let component: InventoryComponent;
-  let fixture: ComponentFixture<InventoryComponent>;
+describe('InventoryPage', () => {
+  let component: InventoryPage;
+  let fixture: ComponentFixture<InventoryPage>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [InventoryComponent],
+      declarations: [InventoryPage],
+      imports: [
+        MatTabsModule,
+        MatIconModule,
+        BrowserModule,
+        BrowserAnimationsModule,
+      ],
       providers: [
         { provide: AderecoService, useValue: MockService(AderecoService) },
         { provide: GalleryService, useValue: MockService(GalleryService) },
@@ -20,7 +30,7 @@ describe('AdminComponent', () => {
       ],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(InventoryComponent);
+    fixture = TestBed.createComponent(InventoryPage);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

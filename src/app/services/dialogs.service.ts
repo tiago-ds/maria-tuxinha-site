@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
-import { InventoryDialogComponent } from '../components/inventory-dialog/inventory-dialog.component';
+import { InventoryDialogComponent } from '../components/inventory/inventory-dialog/inventory-dialog.component';
 import { InventoryDialogData } from '../models/Dialog';
 import { isMobile } from '../utils/screen.utils';
 import { MessageDialogComponent } from '../components/message-dialog/message-dialog.component';

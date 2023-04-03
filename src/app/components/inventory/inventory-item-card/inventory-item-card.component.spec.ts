@@ -4,6 +4,8 @@ import { InventoryItemCardComponent } from './inventory-item-card.component';
 import { DialogsService } from 'src/app/services/dialogs.service';
 import { MockService } from 'ng-mocks';
 import { MatTabsModule } from '@angular/material/tabs';
+import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
 
 describe('InventoryItemCardComponent', () => {
   let component: InventoryItemCardComponent;
@@ -12,7 +14,7 @@ describe('InventoryItemCardComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [InventoryItemCardComponent],
-      imports: [MatTabsModule],
+      imports: [MatTabsModule, MatCardModule, MatIconModule],
       providers: [
         { provide: DialogsService, useValue: MockService(DialogsService) },
       ],

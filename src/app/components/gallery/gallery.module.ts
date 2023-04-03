@@ -7,6 +7,7 @@ import { MatCardModule } from '@angular/material/card';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 import { NgxMaskModule } from 'ngx-mask';
 import { OverlayModule } from '@angular/cdk/overlay';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { OverlayModule } from '@angular/cdk/overlay';
   imports: [
     CommonModule,
     MatCardModule,
+    MatIconModule,
     NgxSkeletonLoaderModule,
     OverlayModule,
     NgxMaskModule.forRoot(),

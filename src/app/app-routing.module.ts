@@ -4,7 +4,7 @@ import { CreateOrderComponent } from './pages/front-office/order/create/create-o
 import { HomeComponent } from './pages/front-office/home/home.component';
 import { LoginComponent } from './pages/back-office/login/login.component';
 import { AuthGuard } from './utils/auth.guard';
-import { InventoryComponent } from './pages/back-office/inventory/inventory.component';
+import { InventoryPage } from './pages/back-office/inventory/inventory.page';
 import { AboutComponent } from './pages/front-office/about/about.component';
 import { CheckoutOrderComponent } from './pages/front-office/order/checkout/checkout-order.component';
 
@@ -20,7 +20,7 @@ const routes: Routes = [
   { path: 'about', component: AboutComponent },
   {
     path: 'admin',
-    component: InventoryComponent,
+    component: InventoryPage,
     canActivate: [AuthGuard],
   },
   { path: 'admin/login', component: LoginComponent },
