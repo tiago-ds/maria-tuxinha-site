@@ -19,7 +19,6 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.socialAuthService.authState.subscribe((user) => {
-      console.log(user);
       this.authService.login(user);
       this.router.navigate(['admin']);
     });

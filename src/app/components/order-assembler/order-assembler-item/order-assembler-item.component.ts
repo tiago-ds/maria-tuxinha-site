@@ -33,7 +33,6 @@ export class OrderAssemblerItemComponent implements OnInit {
       this.isImageLoaded = true;
       this.changeDetectorRef.detectChanges();
     };
-    console.log(this.option);
     this.imageHelper.src = getThumbnailPictureUrl(this.option.pictureId, 100);
   }
 }

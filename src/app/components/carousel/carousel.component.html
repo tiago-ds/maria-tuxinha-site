@@ -1,11 +1,21 @@
-<swiper [config]="config" (slideChange)="onSlideChange()">
-  <ng-template *ngFor="let item of list" swiperSlide>
+<swiper-container
+  slides-per-view="1"
+  speed="500"
+  loop="true"
+  centered-slides="true"
+  pagination="{clickable: true}"
+  autoplay="{
+      delay: 4000,
+      disableOnInteraction: false,
+    }"
+>
+  <swiper-slide *ngFor="let item of list">
     <div class="container">
-      <img data-swiper-parallax="-200" [src]="item.imageSrc" />
+      <img [src]="item.imageSrc" />
       <div>
         <h1>{{ item.title }}</h1>
         <p>{{ item.description }}</p>
       </div>
     </div>
-  </ng-template>
-</swiper>
+  </swiper-slide>
+</swiper-container>

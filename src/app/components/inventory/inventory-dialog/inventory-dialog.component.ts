@@ -1,4 +1,4 @@
-import { GalleryService } from '../../services/gallery.service';
+import { GalleryService } from '../../../services/gallery.service';
 import { Component, Inject, OnInit } from '@angular/core';
 import {
   FormGroup,
@@ -13,7 +13,10 @@ import { InventoryDialogData, OpenReasons } from 'src/app/models/Dialog';
 import { Adereco } from 'src/app/models/Pedido';
 import { Photo } from 'src/app/models/Photo';
 import { AderecoService } from 'src/app/services/adereco.service';
-import { getThumbnailPictureUrl, parseDriveId } from '../../utils/aderecoUtils';
+import {
+  getThumbnailPictureUrl,
+  parseDriveId,
+} from '../../../utils/aderecoUtils';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map } from 'rxjs';
 

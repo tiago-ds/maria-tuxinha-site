@@ -1,6 +1,10 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { GalleryCardComponent } from './gallery-card.component';
+import { MatCardModule } from '@angular/material/card';
+import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
+import { CommonModule } from '@angular/common';
+import { OverlayModule } from '@angular/cdk/overlay';
 
 describe('GalleryCardComponent', () => {
   let component: GalleryCardComponent;
@@ -8,9 +12,14 @@ describe('GalleryCardComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ GalleryCardComponent ]
-    })
-    .compileComponents();
+      declarations: [GalleryCardComponent],
+      imports: [
+        CommonModule,
+        OverlayModule,
+        MatCardModule,
+        NgxSkeletonLoaderModule,
+      ],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(GalleryCardComponent);
     component = fixture.componentInstance;

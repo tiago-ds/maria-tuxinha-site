@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { OrderAssemblerGroupComponent } from './order-assembler-group.component';
+import { MatRadioModule } from '@angular/material/radio';
 
 describe('RadioButtonGroupComponent', () => {
   let component: OrderAssemblerGroupComponent;
@@ -9,6 +10,7 @@ describe('RadioButtonGroupComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [OrderAssemblerGroupComponent],
+      imports: [MatRadioModule],
     }).compileComponents();
 
     fixture = TestBed.createComponent(OrderAssemblerGroupComponent);

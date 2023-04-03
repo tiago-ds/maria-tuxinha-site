@@ -4,13 +4,13 @@ import { Adereco } from 'src/app/models/Pedido';
 import { Photo } from 'src/app/models/Photo';
 import { AderecoService } from 'src/app/services/adereco.service';
 import { GalleryService } from 'src/app/services/gallery.service';
-import { DialogsService } from '../../../services/dialogs.service';
+import { DialogsService } from 'src/app/services/dialogs.service';
 
 @Component({
-  templateUrl: './inventory.component.html',
-  styleUrls: ['./inventory.component.scss'],
+  templateUrl: './inventory.page.html',
+  styleUrls: ['./inventory.page.scss'],
 })
-export class InventoryComponent implements OnInit {
+export class InventoryPage implements OnInit {
   aderecos: any;
   peles: any;
   vestidos: any;

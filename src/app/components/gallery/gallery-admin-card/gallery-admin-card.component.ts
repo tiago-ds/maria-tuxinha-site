@@ -1,6 +1,4 @@
-import { Adereco } from '../../models/Pedido';
-import { DialogsService } from '../../services/dialogs.service';
-import { InventoryDialogData } from '../../models/Dialog';
+import { Photo } from '../../../models/Photo';
 import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
@@ -8,16 +6,18 @@ import {
   Input,
   OnInit,
 } from '@angular/core';
+import { InventoryDialogData } from 'src/app/models/Dialog';
+import { DialogsService } from 'src/app/services/dialogs.service';
 import { getThumbnailPictureUrl } from 'src/app/utils/aderecoUtils';
 
 @Component({
-  selector: 'txa-inventory-item-card',
-  templateUrl: './inventory-item-card.component.html',
-  styleUrls: ['./inventory-item-card.component.scss'],
+  selector: 'txa-gallery-admin-card',
+  templateUrl: './gallery-admin-card.component.html',
+  styleUrls: ['./gallery-admin-card.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class InventoryItemCardComponent implements OnInit {
-  @Input() item: Adereco = {} as Adereco;
+export class GalleryAdminCardComponent implements OnInit {
+  @Input() item: Photo | undefined;
 
   constructor(
     private dialogsService: DialogsService,
@@ -29,10 +29,10 @@ export class InventoryItemCardComponent implements OnInit {
   edit() {
     const dialogData = {
       openReason: 'edit',
-      adereco: this.item,
-      type: 'adereco',
+      photo: this.item,
+      type: 'photo',
     } as InventoryDialogData;
-    const response = this.dialogsService.openAderecoDialog(dialogData);
+    const response = this.dialogsService.openGalleryDialog(dialogData);
     response.afterClosed().subscribe((result) => {
       if (result.success) {
         this.item = result.adereco;

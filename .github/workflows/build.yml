@@ -10,5 +10,11 @@ jobs:
   ci_and_build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - run: npm ci --legacy-peer-deps && npm run build
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Clean Install
+        run: npm ci
+      - name: Unit tests
+        run: npm run test
+      - name: Build
+        run: npm run build
