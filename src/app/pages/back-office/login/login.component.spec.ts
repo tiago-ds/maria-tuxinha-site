@@ -8,6 +8,7 @@ import {
 import { MockService } from 'ng-mocks';
 import { AuthService } from 'src/app/services/auth.service';
 import { Subject } from 'rxjs';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 class SocialAuthMock {
   authState = new Subject();
@@ -30,6 +31,7 @@ describe('AdminLoginComponent', () => {
           useValue: MockService(AuthService),
         },
       ],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
     }).compileComponents();
 
     fixture = TestBed.createComponent(LoginComponent);
